@@ -2,6 +2,13 @@ public class Card {
     private int Value;
     private String Name;
 
+    public Card (String name , int worth) {
+	if(worth > 11) {
+	    throw new IllegalArgumentException() ;}
+	setName(name);
+	setValue(worth);
+    }
+
     public String getName(){
 	return Name;}
 
