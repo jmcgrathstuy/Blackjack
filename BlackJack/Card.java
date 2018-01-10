@@ -29,6 +29,6 @@ public class Card {
 	Value = temp;}
 
     public boolean isAce(){
-        return Name = "Ace";
+        return Name == "Ace";
     }
 }
