@@ -1,6 +1,6 @@
 import java.util.*;
 
-public /*abstract*/ class Person{
+public abstract class Person{
     
     private int CardCount = 0; 
     
@@ -8,7 +8,7 @@ public /*abstract*/ class Person{
 
     private int Total = 0; 
 
-    public void /*Boolean */ Check(Person dude) {}
+    public void Boolean Check(Person dude) {}
 
     public Boolean checkWin(Person dude) {
 	if (getTotal() == 21) {return true;}
@@ -27,11 +27,14 @@ public /*abstract*/ class Person{
 	setTotal(Total + copyCard.getValue());
     }
 
-    public void /* int */ hasAce() {}
+    public int hasAce() {
+	for(int counter = 0; counter < Hand.length; counter ++)
+	    if( 
+    }
 
-    // abstract void hit() ;
+    abstract void hit() ;
 
-    //abstract void stand(); 
+    abstract void stand(); 
 
     public int getCardCount () { 
 	return CardCount;}
