@@ -3,6 +3,8 @@ import java.util.*;
 public class Deck{
 
     ArrayList <Card> data = new ArrayList<Card>(52);
+	
+	Random rand = new Random();
 
 
 
@@ -10,7 +12,6 @@ public class Deck{
 
     public Deck () {
 
-	
 
 	Card two1 = new Card("Two" , 2);
 
@@ -189,7 +190,13 @@ public class Deck{
 
 
 
-    public void Draw () {}
+    public Card Draw () {
+		int whichSpot = rand.nextInt(52);
+		Card pickedCard = data.get(whichSpot);
+		Card copyCard = new Card( pickedCard.getName(), pickedCard.getValue());
+		data.remove(whichSpot);
+		return copyCard;
+	}
 
 
 
@@ -207,6 +214,8 @@ public class Deck{
 	public static void main(String[] args){
 		//i'm using this for testing as i put together all the code for this class
 		Deck testDeck = new Deck();
+		System.out.println(testDeck.CardsLeft());
+		System.out.println(testDeck.Draw().getName());
 		System.out.println(testDeck.CardsLeft());
 	}
 }
