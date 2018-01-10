@@ -117,23 +117,6 @@ public class Deck{
 	
 	}
 
-;
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
 
     public Card draw () {
 		int whichSpot = rand.nextInt(data.size());
@@ -147,6 +130,10 @@ public class Deck{
 
     public int cardsLeft () {
 		return data.size();
+	}
+	
+	public ArrayList getData(){
+		return data;
 	}
 
 
