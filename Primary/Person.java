@@ -1,6 +1,6 @@
 import java.util.*;
 
-public abstract class Person{
+public /*abstract*/ class Person{
     
     private int CardCount = 0; 
     
@@ -29,9 +29,9 @@ public abstract class Person{
 
     public void /* int */ hasAce() {}
 
-    abstract void hit() ;
+    // abstract void hit() ;
 
-    abstract void stand(); 
+    //abstract void stand(); 
 
     public int getCardCount () { 
 	return CardCount;}
