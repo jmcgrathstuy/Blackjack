@@ -135,6 +135,18 @@ public class Deck{
 	public ArrayList getData(){
 		return data;
 	}
+	
+	public String toString(){
+		String toReturn = "[";
+		for( int stepper = 0; stepper < data.size(); stepper++){
+			toReturn += data.get(stepper).getName();
+			if( stepper < data.size() - 1){
+				toReturn += ", ";
+			}
+		}
+		toReturn += "]";
+		return toReturn;
+	}
 
 
 
@@ -196,11 +208,12 @@ public class Deck{
 
 	
 	public static void main(String[] args){
-		//i'm using this for testing as i put together all the code for this class
+		//Using this for testing as we put together all the code for this class
 		Deck testDeck = new Deck();
 		System.out.println(testDeck.cardsLeft());
 		System.out.println(testDeck.draw().getName());
 		System.out.println(testDeck.cardsLeft());
+		System.out.println(testDeck.toString());
 		System.out.println(testDeck.draw().getName());
 		System.out.println(testDeck.draw().getName());
 		System.out.println(testDeck.draw().getName());
@@ -212,6 +225,7 @@ public class Deck{
 		System.out.println(testDeck.draw().getName());
 		System.out.println(testDeck.draw().getName());
 		System.out.println(testDeck.draw().getName());
+		System.out.println(testDeck.toString());
 		System.out.println(testDeck.cardsLeft());
 		testDeck.reset();
 		System.out.println(testDeck.cardsLeft());
