@@ -10,7 +10,7 @@ public class Deck{
 
     
 
-    public Deck () {
+    public Deck() {
 
 
 	Card two1 = new Card("Two" , 2);
@@ -190,7 +190,7 @@ public class Deck{
 
 
 
-    public Card Draw () {
+    public Card draw () {
 		int whichSpot = rand.nextInt(52);
 		Card pickedCard = data.get(whichSpot);
 		Card copyCard = new Card( pickedCard.getName(), pickedCard.getValue());
@@ -200,13 +200,13 @@ public class Deck{
 
 
 
-    public int CardsLeft () {
+    public int cardsLeft () {
 		return data.size();
 	}
 
 
 
-    public  void Reset () {
+    public  void reset () {
 		
 	}
 
