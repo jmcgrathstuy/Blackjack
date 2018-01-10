@@ -8,22 +8,26 @@ public abstract class Person{
 
     private int Total = 0; 
 
-    public void Check(Person dude) {}
+    public void /*Boolean */ Check(Person dude) {}
 
-    public Boolean CheckWin(Person dude) {
+    public Boolean checkWin(Person dude) {
 	if (getTotal() == 21) {return true;}
-	if (FiveCC) {return true;}
+	if (fiveCC()) {return true;}
 	if (compareTo(dude)) {return true;}
 	return false;} 
 
-    public Boolean CheckBust() {
+    public Boolean checkBust() {
         if (getTotal() > 21) {
 	    return true;}
 	return false;}
     
-    public void Draw() {}
+    public void Draw(Deck drawDeck) {
+	Card copyCard = drawDeck.draw();
+	Hand.add(copyCard);
+	setTotal(Total + copyCard.getValue());
+    }
 
-    public int hasAce() {}
+    public void /* int */ hasAce() {}
 
     abstract void hit() ;
 
@@ -41,10 +45,11 @@ public abstract class Person{
     public void setTotal(int replace) {
 	Total = replace;} 
 
-    public Boolean FiveCC () {
-	if (getCardCount() >= 5 && CheckBust() == false) 
+    public Boolean fiveCC () {
+	if (getCardCount() >= 5 && checkBust() == false) 
 	    {return true;}
-    }
+	return false;}
+    
 
     public Boolean compareTo(Person Dude) {
 	if(getTotal() > Dude.getTotal()) 
