@@ -117,6 +117,58 @@ public class Deck{
 	Card Ace4 = new Card("Ace" , 11);
 	
 	data.add(two1);
+	data.add(two2);
+	data.add(two3);
+	data.add(two4);
+	data.add(three1);
+	data.add(three2);
+	data.add(three3);
+	data.add(three4);
+	data.add(four1);
+	data.add(four2);
+	data.add(four3);
+	data.add(four4);
+	data.add(five1);
+	data.add(five2);
+	data.add(five3);
+	data.add(five4);
+	data.add(six1);
+	data.add(six2);
+	data.add(six3);
+	data.add(six4);
+	data.add(seven1);
+	data.add(seven2);
+	data.add(seven3);
+	data.add(seven4);
+	data.add(eight1);
+	data.add(eight2);
+	data.add(eight3);
+	data.add(eight4);
+	data.add(nine1);
+	data.add(nine2);
+	data.add(nine3);
+	data.add(nine4);
+	data.add(ten1);
+	data.add(ten2);
+	data.add(ten3);
+	data.add(ten4);
+	data.add(Jack1);
+	data.add(Jack2);
+	data.add(Jack3);
+	data.add(Jack4);
+	data.add(Queen1);
+	data.add(Queen2);
+	data.add(Queen3);
+	data.add(Queen4);
+	data.add(King1);
+	data.add(King2);
+	data.add(King3);
+	data.add(King4);
+	data.add(Ace1);
+	data.add(Ace2);
+	data.add(Ace3);
+	data.add(Ace4);
+	
 	}
 
 ;
