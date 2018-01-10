@@ -8,7 +8,7 @@ public abstract class Person{
 
     private int Total = 0; 
 
-    public void Check(Person Dude) {}
+    public void Check(Person dude) {}
 
     public Boolean CheckWin(Person dude) {
 	if (getTotal() == 21) {return true;}
@@ -23,7 +23,7 @@ public abstract class Person{
     
     public void Draw() {}
 
-    public Boolean hasAce() {}
+    public int hasAce() {}
 
     abstract void hit() ;
 
