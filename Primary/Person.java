@@ -35,7 +35,7 @@ public abstract class Person{
 	return true;}
 				    
 				    
-	 
+    
     
     public void Draw(Deck drawDeck) {
 	Card copyCard = drawDeck.draw();
