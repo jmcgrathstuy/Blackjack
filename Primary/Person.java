@@ -6,7 +6,9 @@ public abstract class Person{
     
     ArrayList <Card> Hand = new ArrayList<Card>(0);
 
-    private int Total = 0; 
+    private int Total = 0;
+
+    private String name; 
 
    
 
