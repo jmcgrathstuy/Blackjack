@@ -6,9 +6,11 @@ public abstract class Person{
     
     ArrayList <Card> Hand = new ArrayList<Card>(0);
 
-    private int Total = 0; 
+    private int Total = 0;
 
-    public void Boolean Check(Person dude) {}
+    private String name; 
+
+
 
     public Boolean checkWin(Person dude) {
 	if (getTotal() == 21) {return true;}
@@ -17,9 +19,23 @@ public abstract class Person{
 	return false;} 
 
     public Boolean checkBust() {
-        if (getTotal() > 21) {
-	    return true;}
-	return false;}
+	int temp = getTotal();
+        if (temp > 21) {
+	    if(hasAce())
+		{for(int counter = 0; counter < Hand.size(); counter++)
+			{if(Hand.get(counter).getName() == "Ace" && Hand.get(counter).getValue() == 11 && temp > 21)
+				{Hand.get(counter).setValue(1);
+				    temp = temp - 10;}
+			}
+		}
+	}
+	setTotal(temp);
+	if(getTotal() > 21){
+	    return false;}
+	return true;}
+				    
+				    
+    
     
     public void Draw(Deck drawDeck) {
 	Card copyCard = drawDeck.draw();
@@ -27,14 +43,20 @@ public abstract class Person{
 	setTotal(Total + copyCard.getValue());
     }
 
-    public int hasAce() {
-	for(int counter = 0; counter < Hand.length; counter ++)
-	    if( 
+    public Boolean hasAce() {
+        for(int counter = 0; counter < Hand.size(); counter++ ) {
+	    if(Hand.get(counter).getName() == "Ace")
+		{return true;}
+	}
+	return false;
     }
 
     abstract void hit() ;
 
-    abstract void stand(); 
+    abstract void stand();
+
+    public void reset() {
+	Hand = new ArrayList<Card> (0); }
 
     public int getCardCount () { 
 	return CardCount;}
