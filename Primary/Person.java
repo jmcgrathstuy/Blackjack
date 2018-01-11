@@ -17,9 +17,23 @@ public abstract class Person{
 	return false;} 
 
     public Boolean checkBust() {
-        if (getTotal() > 21) {
-	    return true;}
-	return false;}
+	int temp = getTotal();
+        if (temp > 21) {
+	    if(hasAce())
+		{for(int counter = 0; counter < Hand.size(); counter++)
+			{if(Hand.get(counter).getName() == "Ace" && Hand.get(counter).getValue() == 11 && temp > 21)
+				{Hand.get(counter).setValue(1);
+				    temp = temp - 10;}
+			}
+		}
+	}
+	setTotal(temp);
+	if(getTotal() > 21){
+	    return false;}
+	return true;}
+				    
+				    
+	 
     
     public void Draw(Deck drawDeck) {
 	Card copyCard = drawDeck.draw();
@@ -28,7 +42,7 @@ public abstract class Person{
     }
 
     public Boolean hasAce() {
-        for(int counter = 0; counter < Hand.length; counter++ ) {
+        for(int counter = 0; counter < Hand.size(); counter++ ) {
 	    if(Hand.get(counter).getName() == "Ace")
 		{return true;}
 	}
