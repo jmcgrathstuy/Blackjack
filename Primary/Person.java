@@ -8,7 +8,7 @@ public abstract class Person{
 
     private int Total = 0; 
 
-    public void /*Boolean */ Check(Person dude) {}
+   
 
     public Boolean checkWin(Person dude) {
 	if (getTotal() == 21) {return true;}
@@ -27,11 +27,20 @@ public abstract class Person{
 	setTotal(Total + copyCard.getValue());
     }
 
-    public void /* int */ hasAce() {}
+    public Boolean hasAce() {
+        for(int counter = 0; counter < Hand.length; counter++ ) {
+	    if(Hand.get(counter).getName() == "Ace")
+		{return true;}
+	}
+	return false;
+    }
 
     abstract void hit() ;
 
-    abstract void stand(); 
+    abstract void stand();
+
+    public void reset() {
+	Hand = new ArrayList<Card> (0); }
 
     public int getCardCount () { 
 	return CardCount;}
