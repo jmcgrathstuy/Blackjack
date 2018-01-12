@@ -56,6 +56,7 @@ public class Player extends Person{
     }
 
     public void stand(){
+	int a = 1;
     }
 
 

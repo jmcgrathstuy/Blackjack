@@ -52,9 +52,7 @@ public abstract class Person{
 	return false;
     }
 
-    abstract void hit() ;
-
-    abstract void stand();
+    abstract void hit( Deck drawDeck);
 
     public void reset() {
 	Hand = new ArrayList<Card> (0); }
