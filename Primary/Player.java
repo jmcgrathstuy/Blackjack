@@ -4,14 +4,22 @@ public class Player extends Person{
     ArrayList<Card> Hand = new ArrayList<Card>(0);
     private int Total = 0;
     private String Name;
+    private int Bet;
 
 
     Public Player(String inName){
 	setName(inName);
     }
 
+    public void getBet() {
+	return Bet;}
 
+    public int setBet(int temp) {
+	Bet = temp;}
+
+    public void doubleDown() {} 
     
+
     public String getName(){
 	return Name;
     }
