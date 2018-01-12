@@ -1,24 +1,35 @@
 public class Player extends Person{
 
-    private int CardCount = 0;
-    ArrayList<Card> Hand = new ArrayList<Card>(0);
-    private int Total = 0;
+    //private int CardCount = 0;
+    //ArrayList<Card> Hand = new ArrayList<Card>(0);
+    //private int Total = 0;
     private String Name;
     private int Bet;
+    private int Money;
+    
 
 
-    Public Player(String inName){
+    public Player(String inName){
 	setName(inName);
     }
 
-    public void getBet() {
+    public int getBet() {
 	return Bet;}
+    
+    public int getMoney() {
+	return Money;}
 
-    public int setBet(int temp) {
+    public void setMoney(int moolah){
+	Money = moolah;} 
+
+
+    public void setBet(int temp) {
 	Bet = temp;}
 
     public void doubleDown() {} 
     
+    
+
 
     public String getName(){
 	return Name;
