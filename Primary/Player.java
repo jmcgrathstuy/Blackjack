@@ -26,7 +26,17 @@ public class Player extends Person{
     public void setBet(int temp) {
 	Bet = temp;}
 
-    public void doubleDown() {} 
+    public void doubleDown() {
+	Draw();
+	if(checkBust() == false)
+	    {setBet(getBet() * 2);
+		return true;}
+	if(checkBust() == true)
+	    {return false;}
+
+    }
+
+    
     
     
 
@@ -41,7 +51,8 @@ public class Player extends Person{
     
 
     public void hit( Deck drawDeck){
-	Draw( drawDeck);
+	Draw(drawDeck);
+	
     }
 
     public void stand(){
