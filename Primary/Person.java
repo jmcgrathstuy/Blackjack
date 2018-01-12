@@ -41,6 +41,7 @@ public abstract class Person{
 	Card copyCard = drawDeck.draw();
 	Hand.add(copyCard);
 	setTotal(Total + copyCard.getValue());
+        setCardCount( getCardCount() + 1);
     }
 
     public Boolean hasAce() {
