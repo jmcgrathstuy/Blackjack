@@ -20,9 +20,14 @@ public class TestTable{
 	System.out.println(P1.compareTo(P2));
 	System.out.println(thisDeck.cardsLeft()); 
 	P1.reset();
+	thisDeck.reset(); 
 	P1.intentionalDraw(thisDeck,"Ace");
 	System.out.println(P1.position(0).getName());
 	System.out.println(P1.position(0).getValue());
+	P1.intentionalDraw(thisDeck,"Ace");
+	P1.intentionalDraw(thisDeck,"Ace");
+	P1.intentionalDraw(thisDeck,"Ace");
+	P1.intentionalDraw(thisDeck,"Ace"); //Should return an error
 		
 	
 
