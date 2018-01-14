@@ -1,3 +1,4 @@
+
 public class Player extends Person{
 
     //private int CardCount = 0;
@@ -26,15 +27,15 @@ public class Player extends Person{
     public void setBet(int temp) {
 	Bet = temp;}
 
-    public void doubleDown() {
-	Draw();
+    public Boolean doubleDown(Deck thisDeck) {
+	Draw(thisDeck);
 	if(checkBust() == false)
 	    {setBet(getBet() * 2);
 		return true;}
-	if(checkBust() == true)
-	    {return false;}
-
+	return false;
+	
     }
+
 
     
     

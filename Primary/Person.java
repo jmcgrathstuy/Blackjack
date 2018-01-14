@@ -1,3 +1,4 @@
+
 import java.util.*;
 
 public abstract class Person{
@@ -31,8 +32,8 @@ public abstract class Person{
 	}
 	setTotal(temp);
 	if(getTotal() > 21){
-	    return false;}
-	return true;}
+	    return true;}
+	return false;}
 				    
 				    
     
@@ -79,6 +80,13 @@ public abstract class Person{
 	if(getTotal() > Dude.getTotal()) 
 	    {return true;}
 	return false;}
+
+    public Card position(int place) {
+	return Hand.get(place);
+    }
+
+	
+	
 }
 
     
