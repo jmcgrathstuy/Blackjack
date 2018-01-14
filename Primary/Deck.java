@@ -126,7 +126,20 @@ public class Deck{
 		data.remove(whichSpot);
 		return copyCard;
 	}
+    
 
+    public Card NameDraw(String taco) {
+	for(int counter = 0; counter < cardsLeft(); counter++ ){
+	    if(data.get(counter).getName() == taco){
+		Card copyCard = new Card(data.get(counter).getName(),data.get(counter).getValue());
+		data.remove(counter);
+		return copyCard;
+	    }
+	}
+	System.out.println("None of that card remains");
+	throw new IllegalArgumentException();
+    }
+		
 
 
     public int cardsLeft () {

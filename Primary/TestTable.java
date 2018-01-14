@@ -15,8 +15,14 @@ public class TestTable{
 	    {System.out.println(P1.position(counter).getValue());
 		System.out.println(P1.position(counter).getName()); 
 	    }
+	System.out.println(P1.getTotal());
 	System.out.println(P1.checkBust());
 	System.out.println(P1.compareTo(P2));
+	System.out.println(thisDeck.cardsLeft()); 
+	P1.reset();
+	P1.intentionalDraw(thisDeck,"Ace");
+	System.out.println(P1.position(0).getName());
+	System.out.println(P1.position(0).getValue());
 		
 	
 

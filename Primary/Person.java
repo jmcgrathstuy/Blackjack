@@ -30,10 +30,18 @@ public abstract class Person{
 			}
 		}
 	}
+	System.out.println(temp);
 	setTotal(temp);
 	if(getTotal() > 21){
 	    return true;}
 	return false;}
+
+    public void intentionalDraw(Deck thisDeck,String name){
+	Card copyCard = thisDeck.NameDraw(name); 
+	Hand.add(copyCard); 
+	setTotal(Total + copyCard.getValue());
+	setCardCount(getCardCount() + 1);
+    }
 				    
 				    
     
@@ -75,12 +83,12 @@ public abstract class Person{
 	    {return true;}
 	return false;}
     
-
+    // (For CompareTo, returns true if the person running it has a total greater than the person to be compared to)
     public Boolean compareTo(Person Dude) {
 	if(getTotal() > Dude.getTotal()) 
 	    {return true;}
 	return false;}
-
+    
     public Card position(int place) {
 	return Hand.get(place);
     }
