@@ -7,6 +7,7 @@ public class Player extends Person{
     private String Name;
     private int Bet;
     private int Money;
+	private int HandValue;
     
 
 
