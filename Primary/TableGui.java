@@ -19,10 +19,18 @@ public class TableGui extends JFrame implements ActionListener{
 			l.setText("PLAYER: " + Player1.getName() + "    MONEY: " + Integer.toString(Player1.getTotal()));
 		}
 		if(s.equals("Hit")){
-			Player1.setBet(1);
+			Player1.setBet(100);
 			Player1.Draw(tableDeck);
+			if(Player1.checkBust()){
+				Player1.setMoney(Player1.getMoney() - Player1.getBet());
+				Player1.resetHand();
+				hl.setText("Hand:  ");
+				vl.setText("Hand Value:  " + Player1.getTotal());
+			}
+			else{
 			hl.setText(hl.getText() +Player1.getHand().get(Player1.getHand().size() - 1).getName() + ", ");
 			vl.setText("Hand Value:  " + Player1.getTotal());
+			}
 		}
 			
 

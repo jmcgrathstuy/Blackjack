@@ -20,21 +20,23 @@ public abstract class Person{
 	return false;} 
 
     public Boolean checkBust() {
-	int temp = getTotal();
-        if (temp > 21) {
-	    if(hasAce())
-		{for(int counter = 0; counter < Hand.size(); counter++)
-			{if(Hand.get(counter).getName() == "Ace" && Hand.get(counter).getValue() == 11 && temp > 21)
-				{Hand.get(counter).setValue(1);
-				    temp = temp - 10;}
+		int temp = getTotal();
+		if (temp > 21){
+			if(hasAce()){
+				for(int counter = 0; counter < Hand.size(); counter++){
+					if(Hand.get(counter).getName() == "Ace" && Hand.get(counter).getValue() == 11 && temp > 21){
+						Hand.get(counter).setValue(1);
+						temp = temp - 10;
+					}
+				}
 			}
 		}
-	}
-	System.out.println(temp);
-	setTotal(temp);
-	if(getTotal() > 21){
+		System.out.println(temp);
+		setTotal(temp);
+		if(getTotal() > 21){
 	    return true;}
-	return false;}
+		return false;
+	}
 
     public void intentionalDraw(Deck thisDeck,String name){
 	Card copyCard = thisDeck.NameDraw(name); 
@@ -87,6 +89,7 @@ public abstract class Person{
 	
 	public void resetHand(){
 		Hand = new ArrayList<Card> (0);
+		setTotal(0);
 	}
 
     public Boolean fiveCC () {
