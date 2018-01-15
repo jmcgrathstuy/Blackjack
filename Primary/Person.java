@@ -64,7 +64,10 @@ public abstract class Person{
     abstract void hit( Deck drawDeck);
 
     public void reset() {
-	Hand = new ArrayList<Card> (0); }
+	Hand = new ArrayList<Card> (0);
+	Total = 0;
+	CardCount = 0;}
+	
 
     public int getCardCount () { 
 	return CardCount;}

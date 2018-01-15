@@ -27,7 +27,11 @@ public class TestTable{
 	P1.intentionalDraw(thisDeck,"Ace");
 	P1.intentionalDraw(thisDeck,"Ace");
 	P1.intentionalDraw(thisDeck,"Ace");
-	P1.intentionalDraw(thisDeck,"Ace"); //Should return an error
+	//P1.intentionalDraw(thisDeck,"Ace"); //Should return an error
+	//P1.reset();
+	//thisDeck.reset();
+	System.out.println(P1.checkBust());
+	System.out.println(P1.getTotal());
 		
 	
 
