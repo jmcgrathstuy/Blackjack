@@ -7,11 +7,13 @@ public class Player extends Person{
     private String Name;
     private int Bet;
     private int Money;
+	private int HandValue;
     
 
 
     public Player(String inName){
 	setName(inName);
+	setMoney(1000);
     }
 
     public int getBet() {

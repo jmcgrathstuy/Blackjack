@@ -7,7 +7,7 @@ public abstract class Person{
     
     ArrayList <Card> Hand = new ArrayList<Card>(0);
 
-    private int Total = 10000;
+    private int Total = 0;
 
     private String name; 
 
@@ -15,8 +15,8 @@ public abstract class Person{
 
     public Boolean checkWin(Person dude) {
 	if (getTotal() == 21) {return true;}
-	if (fiveCC()) {return true;}
-	if (compareTo(dude)) {return true;}
+	if (fiveCC()) {return true;}/*
+	if (compareTo(dude)) {return true;}*/
 	return false;} 
 
     public Boolean checkBust() {
