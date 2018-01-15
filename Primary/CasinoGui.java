@@ -9,6 +9,14 @@ public class CasinoGui extends JFrame implements ActionListener{
     private JTextField playerName,Bet;
     private JLabel Total , Money , Name , BetCount, PlayerCards , DealerCards; 
     //BET AND SETNAME SET FOR POP UP WHEN STARTGAME IS PRESSED
+	
+	
+	public static Dealer guy = new Dealer();
+	public static Deck thisDeck = new Deck();
+    public static Player a = new Player("noName", 50);
+	
+	public static int BeginRoundPlay = -1; 
+	public static Boolean RoundPlay = false; 
 
 
     public CasinoGui () {
@@ -82,18 +90,16 @@ public class CasinoGui extends JFrame implements ActionListener{
 	String s = e.getActionCommand(); 
 	String tempName = "";
 	
+	
 	System.out.println(s);
 	if(s.equals("StartGame")) {String input = JOptionPane.showInputDialog("Please enter a name");
 	    tempName = input; 
 	    Name.setText("Name :" + input);
-	    gameStarted = true;}
+	    gameStarted = true;
+        a = new Player(tempName , 50);
+		}
 		
-	Dealer guy = new Dealer();
-	Deck thisDeck = new Deck();
-    Player a = new Player(tempName , 50);
 	
-	int BeginRoundPlay = -1; 
-	Boolean RoundPlay = false; 
 	
 	if(s.equals("New Round") && gameStarted == true) {
 	    guy.reset();
@@ -116,18 +122,8 @@ public class CasinoGui extends JFrame implements ActionListener{
 		Total.setText("Total : " + /*(a.position(0).getValue() + a.position(1).getValue())*/ a.getTotal());
 	    BeginRoundPlay++;
 		RoundPlay = true;
-		if(RoundPlay){
-			System.out.println("Roundplay activated");
-		}else{
-			System.out.println("Not activated");
-		}
 		}}}
 		
-		if(RoundPlay){
-			System.out.println("Roundplay activated");
-		}else{
-			System.out.println("Not activated");
-		}
 	if(s.equals("Hit") && gameStarted == true && RoundPlay == true) {
 		System.out.println("testingFSADFDSFSDAFSF");
 	    a.Draw(thisDeck);
