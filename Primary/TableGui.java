@@ -7,7 +7,7 @@ public class TableGui extends JFrame implements ActionListener{
     private JCheckBox c;
 	private JTextField t;
 	private JLabel l, hl, vl;
-	Player Player1 = new Player("Player1");
+	Player Player1 = new Player("Player1", 10000);
 	Deck tableDeck = new Deck();
 
     public void actionPerformed(ActionEvent e){
