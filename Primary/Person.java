@@ -7,7 +7,7 @@ public abstract class Person{
     
     ArrayList <Card> Hand = new ArrayList<Card>(0);
 
-    private int Total = 0;
+    private int Total = 10000;
 
     private String name; 
 
@@ -80,6 +80,14 @@ public abstract class Person{
 
     public void setTotal(int replace) {
 	Total = replace;} 
+	
+	public ArrayList<Card> getHand(){
+		return Hand;
+	}
+	
+	public void resetHand(){
+		Hand = new ArrayList<Card> (0);
+	}
 
     public Boolean fiveCC () {
 	if (getCardCount() >= 5 && checkBust() == false) 
