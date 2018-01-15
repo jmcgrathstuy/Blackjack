@@ -89,8 +89,9 @@ public class CasinoGui extends JFrame implements ActionListener{
 	    gameStarted = true;}
 	Dealer guy = new Dealer();
 	Deck thisDeck = new Deck();
-	Player a = new Player(tempName , 50);
+    	Player a = new Player(tempName , 50);
 	int BeginRoundPlay = -1; 
+	Boolean RoundPlay = false; 
 	if(s.equals("New Round") && gameStarted == true) {
 	    guy.reset();
 	    thisDeck.reset();
@@ -100,7 +101,8 @@ public class CasinoGui extends JFrame implements ActionListener{
 	    else{a.setBet(Integer.parseInt(thing));
 		a.setMoney(a.getMoney() - a.getBet());
 		Money.setText("Money : " + a.getMoney());
-		BetCount.setText("Bet : " + thing);
+		BetCount.setText("Bet : " + a.getBet());
+		
 		while(BeginRoundPlay < 0){	
 		guy.Draw(thisDeck); 
 		guy.Draw(thisDeck); 
@@ -109,8 +111,30 @@ public class CasinoGui extends JFrame implements ActionListener{
 		a.Draw(thisDeck);
 		PlayerCards.setText("Cards : " +  a.position(0).getName() + " , " +  a.position(1).getName());
 		Total.setText("Total : " + (a.position(0).getValue() + a.position(1).getValue()));
-	        BeginRoundPlay++;}}
-	    if(s.equals("Hit" && gameStarted == true && BeginRoundPlay == 0){
+	        BeginRoundPlay++;
+		RoundPlay = true;}}}
+    }
+}
+	   
+	  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /* while(RoundPlay = true) {
+
+		if(s.equals("Hit") && gameStarted == true && BeginRoundPlay == 0){
 		    a.Draw(thisDeck);
 		    if(a.checkBust() == true) {
 			JOptionPane.showMessageDialog(null , "Bust!");
@@ -122,6 +146,13 @@ public class CasinoGui extends JFrame implements ActionListener{
 			DealerCards.setText("Cards : ");
 		    }
 		}
+	    }
+	}
+    }
+}
+	    */	
+	    
+	    
 		
 		    
-		    
+			    

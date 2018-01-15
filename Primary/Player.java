@@ -59,7 +59,7 @@ public class Player extends Person{
 	
     }
 
-    public Boolean stand(){
+    public void stand(){
 	stand  = true;}
     
 
