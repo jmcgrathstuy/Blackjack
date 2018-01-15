@@ -99,8 +99,10 @@ public class CasinoGui extends JFrame implements ActionListener{
 	    tempName = input; 
 	    Name.setText("Name :" + input);
 	    gameStarted = true;
+		
         a.setName(tempName);
 		a.setMoney(50);
+		Money.setText("Money : " + a.getMoney());
 		}
 		
 	
@@ -131,19 +133,20 @@ public class CasinoGui extends JFrame implements ActionListener{
 	if(s.equals("Hit") && gameStarted == true && RoundPlay == true) {
 		System.out.println("testingFSADFDSFSDAFSF");
 	    a.Draw(thisDeck);
-	    Total.setText("Total : " + a.getTotal());
+	    Total.setText("Total Card Value : " + a.getTotal());
 	    PlayerCards.setText( PlayerCards.getText() + ", " + a.position(a.getHand().size() - 1).getName());
 		if(a.checkBust() == true){
 			JOptionPane.showMessageDialog(null, "Bust!");
 			a.setBet(0);
 			a.reset();
-			BetCount.setText("0");
-			Total.setText("Total : 0");
+			BetCount.setText("Bet : 0");
+			Total.setText("Total Card Value : 0");
+			DealerTotal.setText("Total Card Value : ");
 			PlayerCards.setText("Cards : ");
 			DealerCards.setText("Cards : ");
 			BeginRoundPlay--;
 		}else{
-			Total.setText("Total : " + a.getTotal());
+			Total.setText("Total Card Value : " + a.getTotal());
 		}
 	}
 	
@@ -154,12 +157,52 @@ public class CasinoGui extends JFrame implements ActionListener{
 			DealerCards.setText(DealerCards.getText() + guy.position(stepper).getName() + ", ");
 		}
 		DealerTotal.setText( DealerTotal.getText() + guy.getTotal());
-		
-		
+		/*if(a.checkWin(guy)){
+			JOptionPane.showMessageDialog(null, "You beat the dealer!");
+			a.setMoney(a.getMoney() + (a.getBet() * 2));
+			a.setBet(0);
+			a.reset();
+			BetCount.setText("0");
+			Total.setText("Total Card Value : 0");
+			DealerTotal.setText("Total Card Value : ");
+			PlayerCards.setText("Cards : ");
+			DealerCards.setText("Cards : ");
+			BeginRoundPlay--;
+		}*/
+		if(guy.checkBust()){
+			JOptionPane.showMessageDialog(null, "The Dealer busted!");
+			a.setMoney(a.getMoney() + (a.getBet() * 2));
+			
+		}else{
+		if(a.getTotal() > guy.getTotal()){
+			JOptionPane.showMessageDialog(null, "You beat the Dealer!");
+			a.setMoney(a.getMoney() + (a.getBet() * 2));
+			
+		}
+		if(a.getTotal() == guy.getTotal()){
+			JOptionPane.showMessageDialog(null, "You tied the Dealer!");
+			a.setMoney(a.getMoney() + a.getBet());
+			
+		}
+		if(a.getTotal() < guy.getTotal()){
+			JOptionPane.showMessageDialog(null, "The Dealer beat you!");
+		}
+		a.setBet(0);
+		a.reset();
+		guy.reset();
+		BetCount.setText("Bet : 0");
+		Total.setText("Total Card Value : 0");
+		DealerTotal.setText("Total Card Value : ");
+		PlayerCards.setText("Cards : ");
+		DealerCards.setText("Cards : ");
+		Money.setText("Money : " + a.getMoney());
+		BeginRoundPlay--;
+	}
 	}
 	
     }
 }
+
 
 	  
 
