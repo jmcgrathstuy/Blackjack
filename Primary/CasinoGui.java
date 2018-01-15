@@ -7,7 +7,7 @@ public class CasinoGui extends JFrame implements ActionListener{
     private Container pane;
     private JButton hit,stand,startGame,doubleDown,newRound; 
     private JTextField playerName,Bet;
-    private JLabel Total , Money , Name , BetCount;
+    private JLabel Total , Money , Name , BetCount, PlayerCards , DealerCards; 
     //BET AND SETNAME SET FOR POP UP WHEN STARTGAME IS PRESSED
 
 
@@ -31,7 +31,8 @@ public class CasinoGui extends JFrame implements ActionListener{
 	Name = new JLabel("Name : Undetermined");
 	newRound = new JButton("New Round"); 
 	BetCount = new JLabel("Bet : Undetermined");
-	
+	DealerCards = new JLabel("Cards : "); 
+	PlayerCards = new JLabel("Cards : ");
 
 	hit.setBounds( 25, 700 , 100 , 50);
 	stand.setBounds(150 , 700 , 100 , 50) ;
@@ -42,6 +43,8 @@ public class CasinoGui extends JFrame implements ActionListener{
 	Total.setBounds(25 , 675 , 200 , 25);
 	Name.setBounds(650 ,175 , 300 , 25);
 	BetCount.setBounds(650 , 200 , 200 , 25);
+	DealerCards.setBounds(25 , 0 , 500 , 25); 
+	PlayerCards.setBounds(25 , 650 , 500 , 25);  
 	
 	
 	//(HORIZ BOUNDS , VERT BOUNDS , LENGTH , WIDTH) 
@@ -53,6 +56,9 @@ public class CasinoGui extends JFrame implements ActionListener{
         playerName.addActionListener(this);
 	newRound.addActionListener(this);
 	
+
+	pane.add(DealerCards); 
+	pane.add(PlayerCards); 
 	pane.add(Name);
 	pane.add(hit);
 	pane.add(stand);
@@ -84,7 +90,9 @@ public class CasinoGui extends JFrame implements ActionListener{
 	Dealer guy = new Dealer();
 	Deck thisDeck = new Deck();
 	Player a = new Player(tempName , 50);
+	int roundplay = -1; 
 	if(s.equals("New Round") && gameStarted == true) {
+	    while(roundPlay < 0){
 	    a.reset();
 	    guy.reset();
 	    thisDeck.reset();
@@ -95,16 +103,23 @@ public class CasinoGui extends JFrame implements ActionListener{
 		a.setMoney(a.getMoney() - a.getBet());
 		Money.setText("Money : " + a.getMoney());
 		BetCount.setText("Bet : " + thing);
-		
-		    }}
-	}
+		guy.Draw(thisDeck); 
+		guy.Draw(thisDeck); 
+		DealerCards.setText(DealerCards + "FACEDOWN" + guy.position(1).getName()); 
+		a.Draw(thisDeck); 
+		a.Draw(thisDeck);
+		PlayerCards.setText(a.position(0).getName() + " , " +  a.position(1).getName());
+		Total.setText("" + (a.position(0).getValue() + a.position(1).getValue()));
+		if(Dealer.checkBust() == true)
+		    {JOptionPane.showMessageDialog(null 
+		    }}}
+    }
 	    
 		    
 		
 	    
 	    
-}
-	    
+}	    
 
 
 	    
