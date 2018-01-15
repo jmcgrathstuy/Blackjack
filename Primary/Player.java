@@ -8,6 +8,7 @@ public class Player extends Person{
     private int Bet;
     private int Money;
 	private int HandValue;
+    private Boolean stand = false; 
     
 
 
@@ -58,10 +59,12 @@ public class Player extends Person{
 	
     }
 
-    public void stand(){
-	int a = 1;
-    }
-
-
+    public Boolean stand(){
+	stand  = true;}
+    
 
 }
+
+
+
+
