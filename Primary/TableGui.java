@@ -3,12 +3,13 @@ import java.awt.*;
 import java.awt.event.*;
 public class TableGui extends JFrame implements ActionListener{
     private Container pane;
-    private JButton b,b2, b3;
+    private JButton b,b2, b3, b4, b5;
     private JCheckBox c;
 	private JTextField t;
 	private JLabel l, hl, vl;
 	Player Player1 = new Player("Player1", 10000);
 	Deck tableDeck = new Deck();
+	boolean playRound;
 
     public void actionPerformed(ActionEvent e){
         String s = e.getActionCommand();
@@ -71,7 +72,6 @@ public class TableGui extends JFrame implements ActionListener{
         pane.add(b2);
 		pane.add(b3);
 		pane.add(t);
-
 		
 		
 
