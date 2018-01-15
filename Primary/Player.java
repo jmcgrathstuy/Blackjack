@@ -10,8 +10,9 @@ public class Player extends Person{
     
 
 
-    public Player(String inName){
+    public Player(String inName, int StartingMoney){
 	setName(inName);
+	setMoney(StartingMoney);
     }
 
     public int getBet() {
