@@ -3,10 +3,11 @@ import java.awt.event.*;
 import java.awt.*;
 
 public class CasinoGui extends JFrame implements ActionListener{
+    private boolean gameStarted = false; 
     private Container pane;
-    private JButton hit,stand,startGame,doubleDown;
+    private JButton hit,stand,startGame,doubleDown,newRound; 
     private JTextField playerName,Bet;
-    private JLabel Total , Money , Name; 
+    private JLabel Total , Money , Name , BetCount;
     //BET AND SETNAME SET FOR POP UP WHEN STARTGAME IS PRESSED
 
 
@@ -28,15 +29,19 @@ public class CasinoGui extends JFrame implements ActionListener{
 	Total = new JLabel("Total Card Value : 0");
 	Money = new JLabel("Money : 50");
 	Name = new JLabel("Name : Undetermined");
+	newRound = new JButton("New Round"); 
+	BetCount = new JLabel("Bet : Undetermined");
 	
 
 	hit.setBounds( 25, 700 , 100 , 50);
 	stand.setBounds(150 , 700 , 100 , 50) ;
 	doubleDown.setBounds(275 , 700 , 100 , 50);
 	startGame.setBounds(650 , 50 , 100 , 50) ;
-	Money.setBounds(650 , 100 , 100 , 25);
+	newRound.setBounds(650 , 100 , 100 , 50);
+	Money.setBounds(650 , 150 , 100 , 25);
 	Total.setBounds(25 , 675 , 200 , 25);
-	Name.setBounds(650 ,125 , 300 , 25);
+	Name.setBounds(650 ,175 , 300 , 25);
+	BetCount.setBounds(650 , 200 , 200 , 25);
 	
 	
 	//(HORIZ BOUNDS , VERT BOUNDS , LENGTH , WIDTH) 
@@ -46,6 +51,7 @@ public class CasinoGui extends JFrame implements ActionListener{
 	startGame.addActionListener(this);
 	doubleDown.addActionListener(this);
         playerName.addActionListener(this);
+	newRound.addActionListener(this);
 	
 	pane.add(Name);
 	pane.add(hit);
@@ -55,6 +61,8 @@ public class CasinoGui extends JFrame implements ActionListener{
 	pane.add(playerName);
 	pane.add(Money);
 	pane.add(Total);
+	pane.add(newRound);
+	pane.add(BetCount);
     }
     
     public static void main(String[] args){
@@ -66,17 +74,38 @@ public class CasinoGui extends JFrame implements ActionListener{
 	
     public void actionPerformed(ActionEvent e) {
 	String s = e.getActionCommand(); 
+	String tempName = "";
+	
 	System.out.println(s);
 	if(s.equals("StartGame")) {String input = JOptionPane.showInputDialog("Please enter a name");
-	    Player a = new Player(input , 50);
-	    Dealer guy = new Dealer(); 
-	    Deck thisDeck = new Deck(); 
+	    tempName = input; 
 	    Name.setText("Name :" + input);
+	    gameStarted = true;}
+	Dealer guy = new Dealer();
+	Deck thisDeck = new Deck();
+	Player a = new Player(tempName , 50);
+	if(s.equals("New Round") && gameStarted == true) {
+	    a.reset();
+	    guy.reset();
+	    thisDeck.reset();
+	    String thing = JOptionPane.showInputDialog("Please enter a bet amount");
+	    if(Integer.parseInt(thing) > a.getMoney())
+		{JOptionPane.showMessageDialog(null , "You need more money lol");}
+	    else{a.setBet(Integer.parseInt(thing));
+		a.setMoney(a.getMoney() - a.getBet());
+		Money.setText("Money : " + a.getMoney());
+		BetCount.setText("Bet : " + thing);
+		
+		    }}
 	}
 	    
-    }
+		    
+		
 	    
-    }
+	    
+}
+	    
+
 
 	    
 		
