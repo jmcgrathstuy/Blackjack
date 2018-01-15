@@ -7,7 +7,7 @@ public class CasinoGui extends JFrame implements ActionListener{
     private Container pane;
     private JButton hit,stand,startGame,doubleDown,newRound; 
     private JTextField playerName,Bet;
-    private JLabel Total , Money , Name , BetCount, PlayerCards , DealerCards; 
+    private JLabel Total , Money , Name , BetCount, PlayerCards , DealerCards, DealerTotal; 
     //BET AND SETNAME SET FOR POP UP WHEN STARTGAME IS PRESSED
 	
 	
@@ -41,6 +41,7 @@ public class CasinoGui extends JFrame implements ActionListener{
 	BetCount = new JLabel("Bet : Undetermined");
 	DealerCards = new JLabel("Cards : "); 
 	PlayerCards = new JLabel("Cards : ");
+	DealerTotal = new JLabel("Total Card Value : ");
 
 	hit.setBounds( 25, 700 , 100 , 50);
 	stand.setBounds(150 , 700 , 100 , 50) ;
@@ -53,6 +54,7 @@ public class CasinoGui extends JFrame implements ActionListener{
 	BetCount.setBounds(650 , 200 , 200 , 25);
 	DealerCards.setBounds(25 , 0 , 500 , 25); 
 	PlayerCards.setBounds(25 , 650 , 500 , 25);  
+	DealerTotal.setBounds(25, 25, 500, 25);
 	
 	
 	//(HORIZ BOUNDS , VERT BOUNDS , LENGTH , WIDTH) 
@@ -67,6 +69,7 @@ public class CasinoGui extends JFrame implements ActionListener{
 
 	pane.add(DealerCards); 
 	pane.add(PlayerCards); 
+	pane.add(DealerTotal);
 	pane.add(Name);
 	pane.add(hit);
 	pane.add(stand);
@@ -142,10 +145,22 @@ public class CasinoGui extends JFrame implements ActionListener{
 		}else{
 			Total.setText("Total : " + a.getTotal());
 		}
+	}
+	
+	if(s.equals("Stand") && gameStarted == true && RoundPlay == true){
+		guy.fullTurn(thisDeck);
+		DealerCards.setText("Cards : ");
+		for(int stepper = 0; stepper < guy.getHand().size(); stepper++){
+			DealerCards.setText(DealerCards.getText() + guy.position(stepper).getName() + ", ");
+		}
+		DealerTotal.setText( DealerTotal.getText() + guy.getTotal());
+		
+		
+	}
 	
     }
 }
-}
+
 	  
 
 
