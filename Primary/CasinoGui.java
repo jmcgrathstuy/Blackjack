@@ -87,21 +87,24 @@ public class CasinoGui extends JFrame implements ActionListener{
 	    tempName = input; 
 	    Name.setText("Name :" + input);
 	    gameStarted = true;}
+		
 	Dealer guy = new Dealer();
 	Deck thisDeck = new Deck();
-    	Player a = new Player(tempName , 50);
+    Player a = new Player(tempName , 50);
+	
 	int BeginRoundPlay = -1; 
 	Boolean RoundPlay = false; 
+	
 	if(s.equals("New Round") && gameStarted == true) {
 	    guy.reset();
 	    thisDeck.reset();
 	    String thing = JOptionPane.showInputDialog("Please enter a bet amount");
 	    if(Integer.parseInt(thing) > a.getMoney())
-		{JOptionPane.showMessageDialog(null , "You need more money lol");}
+			{JOptionPane.showMessageDialog(null , "You need more money lol");}
 	    else{a.setBet(Integer.parseInt(thing));
-		a.setMoney(a.getMoney() - a.getBet());
-		Money.setText("Money : " + a.getMoney());
-		BetCount.setText("Bet : " + a.getBet());
+			a.setMoney(a.getMoney() - a.getBet());
+			Money.setText("Money : " + a.getMoney());
+			BetCount.setText("Bet : " + a.getBet());
 		
 		while(BeginRoundPlay < 0){	
 		guy.Draw(thisDeck); 
@@ -110,17 +113,30 @@ public class CasinoGui extends JFrame implements ActionListener{
 		a.Draw(thisDeck); 
 		a.Draw(thisDeck);
 		PlayerCards.setText("Cards : " +  a.position(0).getName() + " , " +  a.position(1).getName());
-		Total.setText("Total : " + (a.position(0).getValue() + a.position(1).getValue()));
-	        BeginRoundPlay++;
-		RoundPlay = true;}}}
+		Total.setText("Total : " + /*(a.position(0).getValue() + a.position(1).getValue())*/ a.getTotal());
+	    BeginRoundPlay++;
+		RoundPlay = true;
+		if(RoundPlay){
+			System.out.println("Roundplay activated");
+		}else{
+			System.out.println("Not activated");
+		}
+		}}}
+		
+		if(RoundPlay){
+			System.out.println("Roundplay activated");
+		}else{
+			System.out.println("Not activated");
+		}
 	if(s.equals("Hit") && gameStarted == true && RoundPlay == true) {
+		System.out.println("testingFSADFDSFSDAFSF");
 	    a.Draw(thisDeck);
 	    Total.setText("Total : " + a.getTotal());
-	    PlayerCards.setText
+	    PlayerCards.setText( PlayerCards.getText() + ", " + a.position(a.getHand().size() - 1).getName());
 	
     }
 }
-
+}
 	  
 
 

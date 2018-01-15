@@ -51,7 +51,7 @@ public abstract class Person{
     public void Draw(Deck drawDeck) {
 	Card copyCard = drawDeck.draw();
 	Hand.add(copyCard);
-	setTotal(Total + copyCard.getValue());
+	setTotal(getTotal() + copyCard.getValue());
         setCardCount( getCardCount() + 1);
     }
 
