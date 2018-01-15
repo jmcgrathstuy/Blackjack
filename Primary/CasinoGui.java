@@ -60,14 +60,23 @@ public class CasinoGui extends JFrame implements ActionListener{
     public static void main(String[] args){
 	CasinoGui g = new CasinoGui();
 	g.setVisible(true);
+	
     }
 
 	
     public void actionPerformed(ActionEvent e) {
 	String s = e.getActionCommand(); 
 	System.out.println(s);
+	if(s.equals("StartGame")) {String input = JOptionPane.showInputDialog("Please enter a name");
+	    Player a = new Player(input , 50);
+	    Dealer guy = new Dealer(); 
+	    Deck thisDeck = new Deck(); 
+	    Name.setText("Name :" + input);
+	}
+	    
     }
 	    
-}
+    }
+
 	    
 		
