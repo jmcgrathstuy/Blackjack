@@ -113,9 +113,14 @@ public class CasinoGui extends JFrame implements ActionListener{
 		Total.setText("Total : " + (a.position(0).getValue() + a.position(1).getValue()));
 	        BeginRoundPlay++;
 		RoundPlay = true;}}}
+	if(s.equals("Hit") && gameStarted == true && RoundPlay == true) {
+	    a.Draw(thisDeck);
+	    Total.setText("Total : " + a.getTotal());
+	    PlayerCards.setText
+	
     }
 }
-	   
+
 	  
 
 
