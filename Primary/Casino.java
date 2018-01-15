@@ -8,7 +8,8 @@ public class Casino {
     //INPUT NUMBER OF PLAYERS
     //INPUT NAMES OF PLAYERS
     
-    boolean playGame = true; 
+	boolean playGame = true;
+	boolean roundPlay  = true; 
     
     ArrayList<Player> Gamblers = new ArrayList<Player> (4 /*for the time being*/);
     Player A = new Player("Ethan" , 1000);
@@ -30,13 +31,13 @@ public class Casino {
 	}
 	if(NumberofRip == Gamblers.size() - 1) {playGame = false;} 
 	boolean roundPlay = true;
-	while(roundPlay == true)
-	    {//PLACE BETS 
+	while(roundPlay == true){
+	    //PLACE BETS 
 		guy.Draw(thisDeck);
 		guy.Draw(thisDeck);
 		if(guy.checkBust() == true;)//IF DEALER BUSTS , PLAYERS GET DOUBLE  BET BACK
 		    {for(int counter = 0; counter < Gamblers.size(); counter++ ) {
-			    Gamblers.get(counter).setMoney(getBet() * 2);
+			    Gamblers.get(counter).setMoney(getMoney() + getBet() * 2);
 			    guy.reset();
 			    thisDeck.reset();
 			    roundPlay = false;
@@ -56,8 +57,26 @@ public class Casino {
 		}
 		for(int counter = 0; counter < Gamblers.size(); counter ++ ) {
 		    if(Gamblers.get(counter).checkBust() == true;) {
-			//Skip turn?
-		    //GO THROUGH THE TURNS/BUTTONS
+			//Skip turn? Potentially use a variable in Person? TBD
+			
+		    //GO THROUGH THE TURNS/BUTTONS, HIT , ETC
+		    }
+		    //Little iffy about this and the end turn button. Pls advise. 
+		}
+		roundPlay = false;}
+	for(int counter = 0; counter < Gamblers.size() ; counter++ ) {
+	    if( Gamblers.get(counter).compareTo(guy) == true;)
+		{Gamblers.get(counter).setMoney(getMoney() + getBet() * 2)}
+	    if(Gamblers.get(counter).compareTo(guy) == false;) 
+		{Gamblers.get(counter).setMoney(getMoney() - getBet())
+			}
+	    Gamblers.get(counter).reset();}
+	thisDeck.reset();
+	guy.reset(); 
+    }
+		
+		    
+		    
 		    
 		
 		
