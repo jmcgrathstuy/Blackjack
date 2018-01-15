@@ -96,7 +96,8 @@ public class CasinoGui extends JFrame implements ActionListener{
 	    tempName = input; 
 	    Name.setText("Name :" + input);
 	    gameStarted = true;
-        a = new Player(tempName , 50);
+        a.setName(tempName);
+		a.setMoney(50);
 		}
 		
 	
@@ -129,6 +130,18 @@ public class CasinoGui extends JFrame implements ActionListener{
 	    a.Draw(thisDeck);
 	    Total.setText("Total : " + a.getTotal());
 	    PlayerCards.setText( PlayerCards.getText() + ", " + a.position(a.getHand().size() - 1).getName());
+		if(a.checkBust() == true){
+			JOptionPane.showMessageDialog(null, "Bust!");
+			a.setBet(0);
+			a.reset();
+			BetCount.setText("0");
+			Total.setText("Total : 0");
+			PlayerCards.setText("Cards : ");
+			DealerCards.setText("Cards : ");
+			BeginRoundPlay--;
+		}else{
+			Total.setText("Total : " + a.getTotal());
+		}
 	
     }
 }
