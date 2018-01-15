@@ -49,6 +49,18 @@ public class Casino {
 			    thisDeck.reset();
 			    roundPlay = false;}
 		    }
+		for(int counter = 0; counter < Gamblers.size() ;counter ++) {//HAS THEM DRAW CARDS. 
+		    if(Gamblers.get(counter).getMoney() > 0) {
+			Gamblers.get(counter).Draw();
+			Gamblers.get(counter).Draw();}
+		}
+		for(int counter = 0; counter < Gamblers.size(); counter ++ ) {
+		    if(Gamblers.get(counter).checkBust() == true;) {
+			//Skip turn?
+		    //GO THROUGH THE TURNS/BUTTONS
+		    
+		
+		
 			
 		
 	    
