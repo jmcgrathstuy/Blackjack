@@ -22,8 +22,8 @@ public class Card {
 	Name = temp;
     }
 
-    public int  getValue() {
-s	return Value; }
+    public int getValue() {
+	return Value ;}
     
     public void setValue(int  temp) {
 	Value = temp;}
