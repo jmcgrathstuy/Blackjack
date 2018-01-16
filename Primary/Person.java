@@ -1,4 +1,3 @@
-
 import java.util.*;
 
 public abstract class Person{
@@ -14,10 +13,17 @@ public abstract class Person{
 
 
     public Boolean checkWin(Person dude) {
-	if (getTotal() == 21) {return true;}
-	if (fiveCC()) {return true;}
-	if (compareTo(dude)) {return true;}
-	return false;} 
+		if (getTotal() == 21){
+			return true;
+		}
+		if (fiveCC()) {
+			return true;
+		}
+		if (compareTo(dude)) {
+			return true;
+		}
+		return false;
+	} 
 
     public Boolean checkBust() {
 		int temp = getTotal();
@@ -37,21 +43,24 @@ public abstract class Person{
 	    return true;}
 		return false;
 	}
+	//Checkbust checks whether the player's hand has exceeded 21, and if so, tries to reduce Aces from 11 to 1
+	//If reducing Aces can reduce the hand's value below 21 or is not needed, checkbust returns false.
+	//If the hand's value exceeds 21 no matter what, checkBust returns true.
+	//
+	
 
     public void intentionalDraw(Deck thisDeck,String name){
-	Card copyCard = thisDeck.NameDraw(name); 
-	Hand.add(copyCard); 
-	setTotal(Total + copyCard.getValue());
-	setCardCount(getCardCount() + 1);
+		Card copyCard = thisDeck.NameDraw(name); 
+		Hand.add(copyCard); 
+		setTotal(Total + copyCard.getValue());
+		setCardCount(getCardCount() + 1);
     }
-				    
-				    
     
     
     public void Draw(Deck drawDeck) {
-	Card copyCard = drawDeck.draw();
-	Hand.add(copyCard);
-	setTotal(getTotal() + copyCard.getValue());
+		Card copyCard = drawDeck.draw();
+		Hand.add(copyCard);
+		setTotal(getTotal() + copyCard.getValue());
         setCardCount( getCardCount() + 1);
     }
 
@@ -66,22 +75,27 @@ public abstract class Person{
     abstract void hit( Deck drawDeck);
 
     public void reset() {
-	Hand = new ArrayList<Card> (0);
-	Total = 0;
-	CardCount = 0;}
+		Hand = new ArrayList<Card> (0);
+		Total = 0;
+		CardCount = 0;
+	}
 	
 
     public int getCardCount () { 
-	return CardCount;}
+	return CardCount;
+	}
 
     public void setCardCount( int replace) {
-	CardCount = replace; }
+	CardCount = replace; 
+	}
 
     public int getTotal() {
-	return Total;}
+	return Total;
+	}
 
     public void setTotal(int replace) {
-	Total = replace;} 
+	Total = replace;
+	} 
 	
 	public ArrayList<Card> getHand(){
 		return Hand;
@@ -93,19 +107,26 @@ public abstract class Person{
 	}
 
     public Boolean fiveCC () {
-	if (getCardCount() >= 5 && checkBust() == false) 
-	    {return true;}
-	return false;}
+		if (getCardCount() >= 5 && checkBust() == false){
+			return true;
+		}
+		return false;
+	}
     
-    // (For CompareTo, returns true if the person running it has a total greater than the person to be compared to)
+    
     public Boolean compareTo(Person Dude) {
 	if(getTotal() > Dude.getTotal()) 
 	    {return true;}
 	return false;}
-    
+    //Returns true if this Person has a hand total greater than the specified Person
+	//
+	
+	
     public Card position(int place) {
-	return Hand.get(place);
+		return Hand.get(place);
     }
+	//Returns the card in the Person's hand at index place.
+	//
 
 	
 	
