@@ -7,7 +7,7 @@ public class CasinoGui extends JFrame implements ActionListener{
     private Container pane;
     private JButton hit,stand,startGame,doubleDown,newRound; 
     private JTextField playerName,Bet;
-    private JLabel Total , Money , Name , BetCount, PlayerCards , DealerCards, DealerTotal; 
+    private JLabel Total , Money , Name , BetCount, PlayerCards , DealerCards, DealerTotal, DealerHead, PlayerHead; 
     //BET AND SETNAME SET FOR POP UP WHEN STARTGAME IS PRESSED
 	
 	
@@ -31,8 +31,8 @@ public class CasinoGui extends JFrame implements ActionListener{
 	pane.setLayout(null);
 	hit = new JButton ("Hit");
 	stand = new JButton("Stand");
-	startGame = new JButton("StartGame");
-	doubleDown = new JButton("DoubleDown");
+	startGame = new JButton("Start Game");
+	doubleDown = new JButton("Double Down");
 	playerName = new JTextField("Input Name");
 	Total = new JLabel("Total Card Value : 0");
 	Money = new JLabel("Money : 50");
@@ -42,6 +42,8 @@ public class CasinoGui extends JFrame implements ActionListener{
 	DealerCards = new JLabel("Cards : "); 
 	PlayerCards = new JLabel("Cards : ");
 	DealerTotal = new JLabel("Total Card Value : ");
+	DealerHead = new JLabel("The Dealer's Hand");
+	PlayerHead = new JLabel("Your Hand");
 
 	hit.setBounds( 25, 700 , 100 , 50);
 	stand.setBounds(150 , 700 , 100 , 50) ;
@@ -52,9 +54,11 @@ public class CasinoGui extends JFrame implements ActionListener{
 	Total.setBounds(25 , 675 , 200 , 25);
 	Name.setBounds(650 ,175 , 300 , 25);
 	BetCount.setBounds(650 , 200 , 200 , 25);
-	DealerCards.setBounds(25 , 0 , 500 , 25); 
+	DealerCards.setBounds(25 , 25 , 500 , 25); 
 	PlayerCards.setBounds(25 , 650 , 500 , 25);  
-	DealerTotal.setBounds(25, 25, 500, 25);
+	DealerTotal.setBounds(25, 50, 500, 25);
+	DealerHead.setBounds(25, 0, 500, 25);
+	PlayerHead.setBounds(25, 625, 500, 25);
 	
 	
 	//(HORIZ BOUNDS , VERT BOUNDS , LENGTH , WIDTH) 
@@ -80,6 +84,8 @@ public class CasinoGui extends JFrame implements ActionListener{
 	pane.add(Total);
 	pane.add(newRound);
 	pane.add(BetCount);
+	pane.add(DealerHead);
+	pane.add(PlayerHead);
     }
     
     public static void main(String[] args){
@@ -95,14 +101,22 @@ public class CasinoGui extends JFrame implements ActionListener{
 	
 	
 	System.out.println(s);
-	if(s.equals("StartGame")) {String input = JOptionPane.showInputDialog("Please enter a name");
+	if(s.equals("Start Game")) {String input = JOptionPane.showInputDialog("Please enter a name");
 	    tempName = input; 
 	    Name.setText("Name : " + input);
-	    gameStarted = true;
-		
         a.setName(tempName);
 		a.setMoney(50);
+		a.setBet(0);
+		a.reset();
+		guy.reset();
+		BetCount.setText("Bet : 0");
+		Total.setText("Total Card Value : 0");
+		DealerTotal.setText("Total Card Value : ");
+		PlayerCards.setText("Cards : ");
+		DealerCards.setText("Cards : ");
 		Money.setText("Money : " + a.getMoney());
+		
+	    gameStarted = true;
 		}
 		
 	
@@ -153,6 +167,34 @@ public class CasinoGui extends JFrame implements ActionListener{
 			Total.setText("Total Card Value : " + a.getTotal());
 		}
 	}
+	
+	if(s.equals("Double Down") && gameStarted == true && RoundPlay == true){
+		if(a.getMoney() >= a.getBet()){
+			a.setMoney(a.getMoney() - a.getBet());
+			a.setBet(a.getBet() * 2);
+			a.Draw(thisDeck);
+			Total.setText("Total Card Value : " + a.getTotal());
+			PlayerCards.setText( PlayerCards.getText() + ", " + a.position(a.getHand().size() - 1).getName());
+			if(a.checkBust() == true){
+				JOptionPane.showMessageDialog(null, "Bust!");
+				a.setBet(0);
+				a.reset();
+				BetCount.setText("Bet : 0");
+				Total.setText("Total Card Value : 0");
+				DealerTotal.setText("Total Card Value : ");
+				PlayerCards.setText("Cards : ");
+				DealerCards.setText("Cards : ");
+				Money.setText("Money : " + a.getMoney());
+				BeginRoundPlay--;
+			}else{
+				Total.setText("Total Card Value : " + a.getTotal());
+				s = "Stand";
+			}
+		}else{
+			JOptionPane.showMessageDialog(null, "You're too broke to double down!");
+		}
+	}
+	
 	
 	if(s.equals("Stand") && gameStarted == true && RoundPlay == true){
 		guy.fullTurn(thisDeck);
