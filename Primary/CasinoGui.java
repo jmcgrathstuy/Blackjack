@@ -206,18 +206,7 @@ public class CasinoGui extends JFrame implements ActionListener{
 			DealerCards.setText(DealerCards.getText() + guy.position(stepper).getName() + ", ");
 		}
 		DealerTotal.setText( DealerTotal.getText() + guy.getTotal());
-		/*if(a.checkWin(guy)){
-			JOptionPane.showMessageDialog(null, "You beat the dealer!");
-			a.setMoney(a.getMoney() + (a.getBet() * 2));
-			a.setBet(0);
-			a.reset();
-			BetCount.setText("0");
-			Total.setText("Total Card Value : 0");
-			DealerTotal.setText("Total Card Value : ");
-			PlayerCards.setText("Cards : ");
-			DealerCards.setText("Cards : ");
-			BeginRoundPlay--;
-		}*/
+		
 		if(guy.checkBust()){
 			JOptionPane.showMessageDialog(null, "The Dealer busted!");
 			a.setMoney(a.getMoney() + (a.getBet() * 2));
@@ -247,48 +236,5 @@ public class CasinoGui extends JFrame implements ActionListener{
 		Money.setText("Money : " + a.getMoney());
 		BeginRoundPlay--;
 	}
-	
     }
 }
-
-
-	  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  /* while(RoundPlay = true) {
-
-		if(s.equals("Hit") && gameStarted == true && BeginRoundPlay == 0){
-		    a.Draw(thisDeck);
-		    if(a.checkBust() == true) {
-			JOptionPane.showMessageDialog(null , "Bust!");
-			a.setBet(0);
-			a.reset();
-			BetCount.setText("0");
-			Total.setText("Total : 0");
-			PlayerCards.setText("Cards : ");
-			DealerCards.setText("Cards : ");
-		    }
-		}
-	    }
-	}
-    }
-}
-	    */	
-	    
-	    
-		
-		    
-			    
