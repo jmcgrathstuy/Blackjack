@@ -3,7 +3,7 @@ import java.awt.event.*;
 import java.awt.*;
 
 public class CasinoGui extends JFrame implements ActionListener{
-    private boolean gameStarted = false; 
+    private boolean gameStarted = false; //A checkmark for the button startGame
     private Container pane;
     private JButton hit,stand,startGame,doubleDown,newRound; 
     private JTextField playerName,Bet;
@@ -21,12 +21,13 @@ public class CasinoGui extends JFrame implements ActionListener{
 
     public CasinoGui () {
 	this.setTitle("Casino");
-	this.setSize(550,800);
+	this.setSize(800,800);
 	this.setLocation(250,0);
 	this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-	
+	//this essentially sets up the GUI, with placement of buttons, creation of buttons, actionListeners , etc. 
 	pane = this.getContentPane();
+	//pane.setLayout(new FlowLayout());
 	pane.setLayout(null);
 	hit = new JButton ("Hit");
 	stand = new JButton("Stand");
@@ -34,7 +35,7 @@ public class CasinoGui extends JFrame implements ActionListener{
 	doubleDown = new JButton("Double Down");
 	playerName = new JTextField("Input Name");
 	Total = new JLabel("Total Card Value : 0");
-	Money = new JLabel("Money : 250");
+	Money = new JLabel("Money : 50");
 	Name = new JLabel("Name : Undetermined");
 	newRound = new JButton("New Round"); 
 	BetCount = new JLabel("Bet : Undetermined");
@@ -46,13 +47,13 @@ public class CasinoGui extends JFrame implements ActionListener{
 
 	hit.setBounds( 25, 700 , 100 , 50);
 	stand.setBounds(150 , 700 , 100 , 50) ;
-	doubleDown.setBounds(275 , 700 , 108 , 50);
-	startGame.setBounds(400 , 10 , 100 , 50) ;
-	newRound.setBounds(400 , 60 , 100 , 50);
-	Money.setBounds(400 , 110 , 100 , 25);
+	doubleDown.setBounds(275 , 700 , 100 , 50);
+	startGame.setBounds(650 , 50 , 100 , 50) ;
+	newRound.setBounds(650 , 100 , 100 , 50);
+	Money.setBounds(650 , 150 , 100 , 25);
 	Total.setBounds(25 , 675 , 200 , 25);
-	Name.setBounds(400 ,135 , 300 , 25);
-	BetCount.setBounds(400 , 160 , 200 , 25);
+	Name.setBounds(650 ,175 , 300 , 25);
+	BetCount.setBounds(650 , 200 , 200 , 25);
 	DealerCards.setBounds(25 , 25 , 500 , 25); 
 	PlayerCards.setBounds(25 , 650 , 500 , 25);  
 	DealerTotal.setBounds(25, 50, 500, 25);
@@ -66,7 +67,7 @@ public class CasinoGui extends JFrame implements ActionListener{
 	stand.addActionListener(this);
 	startGame.addActionListener(this);
 	doubleDown.addActionListener(this);
-    playerName.addActionListener(this);
+        playerName.addActionListener(this);
 	newRound.addActionListener(this);
 	
 
@@ -104,7 +105,7 @@ public class CasinoGui extends JFrame implements ActionListener{
 	    tempName = input; 
 	    Name.setText("Name : " + input);
         a.setName(tempName);
-		a.setMoney(250);
+		a.setMoney(50);
 		a.setBet(0);
 		a.reset();
 		guy.reset();
@@ -117,8 +118,8 @@ public class CasinoGui extends JFrame implements ActionListener{
 		
 	    gameStarted = true;
 		}
-	//Initializes the Player, resets all values, and allows the other buttons to be pressed.
-	//
+		
+	
 	
 	if(s.equals("New Round") && gameStarted == true) {
 	    guy.reset();
@@ -147,8 +148,6 @@ public class CasinoGui extends JFrame implements ActionListener{
 	    BeginRoundPlay++;
 		RoundPlay = true;
 		}}}
-	//Player enters their bet and the beginning cards are dealt. Allows the player to then hit, stand, and double down as they choose.
-	//
 		
 	if(s.equals("Hit") && gameStarted == true && RoundPlay == true) {
 	    a.Draw(thisDeck);
@@ -171,9 +170,6 @@ public class CasinoGui extends JFrame implements ActionListener{
 			JOptionPane.showMessageDialog(null, "Woah there! That's a Five Card Charlie! If you stand now, that's a winning hand!");
 		}
 	}
-	//Each hit will let the player draw a card. If this causes the player to bust, they will lose their bet and all values will be reset.
-	//If a player's hit triggers a Five-Card-Charlie, they will be notified.
-	//
 	
 	if(s.equals("Double Down") && gameStarted == true && RoundPlay == true){
 		if(a.getMoney() >= a.getBet()){
@@ -201,9 +197,6 @@ public class CasinoGui extends JFrame implements ActionListener{
 			JOptionPane.showMessageDialog(null, "You're too broke to double down!");
 		}
 	}
-	//The player doubles their bet and hits one more time. If this causes them to bust, they will lose twice the amount of their original bet.
-	//If the player does not bust, they will be forced to stand and will win or lose accordingly.
-	//
 	
 	
 	if(s.equals("Stand") && gameStarted == true && RoundPlay == true){
@@ -213,7 +206,18 @@ public class CasinoGui extends JFrame implements ActionListener{
 			DealerCards.setText(DealerCards.getText() + guy.position(stepper).getName() + ", ");
 		}
 		DealerTotal.setText( DealerTotal.getText() + guy.getTotal());
-		
+		/*if(a.checkWin(guy)){
+			JOptionPane.showMessageDialog(null, "You beat the dealer!");
+			a.setMoney(a.getMoney() + (a.getBet() * 2));
+			a.setBet(0);
+			a.reset();
+			BetCount.setText("0");
+			Total.setText("Total Card Value : 0");
+			DealerTotal.setText("Total Card Value : ");
+			PlayerCards.setText("Cards : ");
+			DealerCards.setText("Cards : ");
+			BeginRoundPlay--;
+		}*/
 		if(guy.checkBust()){
 			JOptionPane.showMessageDialog(null, "The Dealer busted!");
 			a.setMoney(a.getMoney() + (a.getBet() * 2));
@@ -243,12 +247,48 @@ public class CasinoGui extends JFrame implements ActionListener{
 		Money.setText("Money : " + a.getMoney());
 		BeginRoundPlay--;
 	}
-	//Upon pressing Stand, the player ends their turn and the dealer executes their turn according to the rules. (Hit until 17 or higher, then stay. Hit on soft 17)
-	//Based on whether the player'd hand beats that of the dealer, they will either win, tie, or lose.
-	//Player is notified by a popup and all values are refreshed.
-	//
-	
-	
 	
     }
 }
+
+
+	  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /* while(RoundPlay = true) {
+
+		if(s.equals("Hit") && gameStarted == true && BeginRoundPlay == 0){
+		    a.Draw(thisDeck);
+		    if(a.checkBust() == true) {
+			JOptionPane.showMessageDialog(null , "Bust!");
+			a.setBet(0);
+			a.reset();
+			BetCount.setText("0");
+			Total.setText("Total : 0");
+			PlayerCards.setText("Cards : ");
+			DealerCards.setText("Cards : ");
+		    }
+		}
+	    }
+	}
+    }
+}
+	    */	
+	    
+	    
+		
+		    
+			    
