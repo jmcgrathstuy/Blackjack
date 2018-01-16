@@ -5,6 +5,7 @@ public class Deck{
 
     ArrayList <Card> data = new ArrayList<Card>(52);
 	Random rand = new Random();
+    //This is essentially here to define every single card in a deck(not including suits)
 	Card two1 = new Card("Two" , 2);
 	Card two2 = new Card("Two" , 2);
 	Card two3 = new Card("Two" , 2);
@@ -62,7 +63,7 @@ public class Deck{
     
 
     public Deck() {
-
+	//This adds all the cards to the deck
 	data.add(two1);
 	data.add(two2);
 	data.add(two3);
@@ -118,7 +119,7 @@ public class Deck{
 	
 	}
 
-
+    //This draws a random card in the deck, and removes the card from the deck. 
     public Card draw () {
 		int whichSpot = rand.nextInt(data.size());
 		Card pickedCard = data.get(whichSpot);
@@ -127,7 +128,7 @@ public class Deck{
 		return copyCard;
 	}
     
-
+    //This draws a specific card from the Deck with a given name, and if all of the cards with that name have been taken, then it returns an error. 
     public Card NameDraw(String taco) {
 	for(int counter = 0; counter < cardsLeft(); counter++ ){
 	    if(data.get(counter).getName() == taco){
@@ -141,11 +142,11 @@ public class Deck{
     }
 		
 
-
+    //This returns the number of cards left in the deck. 
     public int cardsLeft () {
 		return data.size();
 	}
-	
+    
 	public ArrayList getData(){
 		return data;
 	}
@@ -163,7 +164,7 @@ public class Deck{
 	}
 
 
-
+    //This reset resets the Deck.
     public void reset () {
 		data.clear();
 		data.add(two1);
