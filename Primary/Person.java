@@ -15,8 +15,8 @@ public abstract class Person{
 
     public Boolean checkWin(Person dude) {
 	if (getTotal() == 21) {return true;}
-	if (fiveCC()) {return true;}/*
-	if (compareTo(dude)) {return true;}*/
+	if (fiveCC()) {return true;}
+	if (compareTo(dude)) {return true;}
 	return false;} 
 
     public Boolean checkBust() {
