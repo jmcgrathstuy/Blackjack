@@ -166,6 +166,9 @@ public class CasinoGui extends JFrame implements ActionListener{
 		}else{
 			Total.setText("Total Card Value : " + a.getTotal());
 		}
+		if(a.fiveCC()){
+			JOptionPane.showMessageDialog(null, "Woah there! That's a Five Card Charlie! If you stand now, that's a winning hand!");
+		}
 	}
 	
 	if(s.equals("Double Down") && gameStarted == true && RoundPlay == true){
@@ -220,17 +223,17 @@ public class CasinoGui extends JFrame implements ActionListener{
 			a.setMoney(a.getMoney() + (a.getBet() * 2));
 			
 		}else{
-		if(a.getTotal() > guy.getTotal()){
+		if(a.getTotal() > guy.getTotal() || a.fiveCC() ){
 			JOptionPane.showMessageDialog(null, "You beat the Dealer!");
 			a.setMoney(a.getMoney() + (a.getBet() * 2));
 			
 		}
-		if(a.getTotal() == guy.getTotal()){
+		if(a.getTotal() == guy.getTotal() && !a.fiveCC()){
 			JOptionPane.showMessageDialog(null, "You tied the Dealer!");
 			a.setMoney(a.getMoney() + a.getBet());
 			
 		}
-		if(a.getTotal() < guy.getTotal()){
+		if(a.getTotal() < guy.getTotal() && !a.fiveCC()){
 			JOptionPane.showMessageDialog(null, "The Dealer beat you!");
 		}}
 		a.setBet(0);
