@@ -27,7 +27,6 @@ public class CasinoGui extends JFrame implements ActionListener{
 
 	
 	pane = this.getContentPane();
-	//pane.setLayout(new FlowLayout());
 	pane.setLayout(null);
 	hit = new JButton ("Hit");
 	stand = new JButton("Stand");
@@ -118,8 +117,8 @@ public class CasinoGui extends JFrame implements ActionListener{
 		
 	    gameStarted = true;
 		}
-		
-	
+	//Initializes the Player, resets all values, and allows the other buttons to be pressed.
+	//
 	
 	if(s.equals("New Round") && gameStarted == true) {
 	    guy.reset();
@@ -148,6 +147,8 @@ public class CasinoGui extends JFrame implements ActionListener{
 	    BeginRoundPlay++;
 		RoundPlay = true;
 		}}}
+	//Player enters their bet and the beginning cards are dealt. Allows the player to then hit, stand, and double down as they choose.
+	//
 		
 	if(s.equals("Hit") && gameStarted == true && RoundPlay == true) {
 	    a.Draw(thisDeck);
@@ -170,6 +171,9 @@ public class CasinoGui extends JFrame implements ActionListener{
 			JOptionPane.showMessageDialog(null, "Woah there! That's a Five Card Charlie! If you stand now, that's a winning hand!");
 		}
 	}
+	//Each hit will let the player draw a card. If this causes the player to bust, they will lose their bet and all values will be reset.
+	//If a player's hit triggers a Five-Card-Charlie, they will be notified.
+	//
 	
 	if(s.equals("Double Down") && gameStarted == true && RoundPlay == true){
 		if(a.getMoney() >= a.getBet()){
@@ -197,6 +201,9 @@ public class CasinoGui extends JFrame implements ActionListener{
 			JOptionPane.showMessageDialog(null, "You're too broke to double down!");
 		}
 	}
+	//The player doubles their bet and hits one more time. If this causes them to bust, they will lose twice the amount of their original bet.
+	//If the player does not bust, they will be forced to stand and will win or lose accordingly.
+	//
 	
 	
 	if(s.equals("Stand") && gameStarted == true && RoundPlay == true){
@@ -236,5 +243,12 @@ public class CasinoGui extends JFrame implements ActionListener{
 		Money.setText("Money : " + a.getMoney());
 		BeginRoundPlay--;
 	}
+	//Upon pressing Stand, the player ends their turn and the dealer executes their turn according to the rules. (Hit until 17 or higher, then stay. Hit on soft 17)
+	//Based on whether the player'd hand beats that of the dealer, they will either win, tie, or lose.
+	//Player is notified by a popup and all values are refreshed.
+	//
+	
+	
+	
     }
 }
