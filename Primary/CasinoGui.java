@@ -13,7 +13,7 @@ public class CasinoGui extends JFrame implements ActionListener{
 	
 	public static Dealer guy = new Dealer();
 	public static Deck thisDeck = new Deck();
-    public static Player a = new Player("noName", 50);
+    public static Player a = new Player("noName", 250);
 	
 	public static int BeginRoundPlay = -1; 
 	public static Boolean RoundPlay = false; 
