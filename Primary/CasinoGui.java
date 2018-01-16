@@ -21,7 +21,7 @@ public class CasinoGui extends JFrame implements ActionListener{
 
     public CasinoGui () {
 	this.setTitle("Casino");
-	this.setSize(800,800);
+	this.setSize(550,800);
 	this.setLocation(250,0);
 	this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 
@@ -48,12 +48,12 @@ public class CasinoGui extends JFrame implements ActionListener{
 	hit.setBounds( 25, 700 , 100 , 50);
 	stand.setBounds(150 , 700 , 100 , 50) ;
 	doubleDown.setBounds(275 , 700 , 100 , 50);
-	startGame.setBounds(650 , 50 , 100 , 50) ;
-	newRound.setBounds(650 , 100 , 100 , 50);
-	Money.setBounds(650 , 150 , 100 , 25);
+	startGame.setBounds(400 , 10 , 100 , 50) ;
+	newRound.setBounds(400 , 60 , 100 , 50);
+	Money.setBounds(400 , 110 , 100 , 25);
 	Total.setBounds(25 , 675 , 200 , 25);
-	Name.setBounds(650 ,175 , 300 , 25);
-	BetCount.setBounds(650 , 200 , 200 , 25);
+	Name.setBounds(400 ,135 , 300 , 25);
+	BetCount.setBounds(400 , 160 , 200 , 25);
 	DealerCards.setBounds(25 , 25 , 500 , 25); 
 	PlayerCards.setBounds(25 , 650 , 500 , 25);  
 	DealerTotal.setBounds(25, 50, 500, 25);
@@ -67,7 +67,7 @@ public class CasinoGui extends JFrame implements ActionListener{
 	stand.addActionListener(this);
 	startGame.addActionListener(this);
 	doubleDown.addActionListener(this);
-        playerName.addActionListener(this);
+    playerName.addActionListener(this);
 	newRound.addActionListener(this);
 	
 
