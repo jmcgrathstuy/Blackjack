@@ -97,7 +97,7 @@ public class CasinoGui extends JFrame implements ActionListener{
 	System.out.println(s);
 	if(s.equals("StartGame")) {String input = JOptionPane.showInputDialog("Please enter a name");
 	    tempName = input; 
-	    Name.setText("Name :" + input);
+	    Name.setText("Name : " + input);
 	    gameStarted = true;
 		
         a.setName(tempName);
@@ -111,8 +111,13 @@ public class CasinoGui extends JFrame implements ActionListener{
 	    guy.reset();
 	    thisDeck.reset();
 	    String thing = JOptionPane.showInputDialog("Please enter a bet amount");
+		try {
+			boolean meaningless = Integer.parseInt(thing) < 0;
+        } catch (NumberFormatException ex) {
+			JOptionPane.showMessageDialog(null, "Try a real number this time");
+		}
 	    if(Integer.parseInt(thing) > a.getMoney())
-			{JOptionPane.showMessageDialog(null , "You need more money lol");}
+			{JOptionPane.showMessageDialog(null , "You're not THAT rich yet!");}
 	    else{a.setBet(Integer.parseInt(thing));
 			a.setMoney(a.getMoney() - a.getBet());
 			Money.setText("Money : " + a.getMoney());
@@ -121,17 +126,16 @@ public class CasinoGui extends JFrame implements ActionListener{
 		while(BeginRoundPlay < 0){	
 		guy.Draw(thisDeck); 
 		guy.Draw(thisDeck); 
-		DealerCards.setText("Cards :" + "FACEDOWN , " + guy.position(1).getName()); 
+		DealerCards.setText("Cards : " + "FACEDOWN , " + guy.position(1).getName()); 
 		a.Draw(thisDeck); 
 		a.Draw(thisDeck);
 		PlayerCards.setText("Cards : " +  a.position(0).getName() + " , " +  a.position(1).getName());
-		Total.setText("Total : " + /*(a.position(0).getValue() + a.position(1).getValue())*/ a.getTotal());
+		Total.setText("Total Card Value : " + /*(a.position(0).getValue() + a.position(1).getValue())*/ a.getTotal());
 	    BeginRoundPlay++;
 		RoundPlay = true;
 		}}}
 		
 	if(s.equals("Hit") && gameStarted == true && RoundPlay == true) {
-		System.out.println("testingFSADFDSFSDAFSF");
 	    a.Draw(thisDeck);
 	    Total.setText("Total Card Value : " + a.getTotal());
 	    PlayerCards.setText( PlayerCards.getText() + ", " + a.position(a.getHand().size() - 1).getName());
@@ -186,7 +190,7 @@ public class CasinoGui extends JFrame implements ActionListener{
 		}
 		if(a.getTotal() < guy.getTotal()){
 			JOptionPane.showMessageDialog(null, "The Dealer beat you!");
-		}
+		}}
 		a.setBet(0);
 		a.reset();
 		guy.reset();
@@ -197,7 +201,6 @@ public class CasinoGui extends JFrame implements ActionListener{
 		DealerCards.setText("Cards : ");
 		Money.setText("Money : " + a.getMoney());
 		BeginRoundPlay--;
-	}
 	}
 	
     }
