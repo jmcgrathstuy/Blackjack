@@ -163,6 +163,7 @@ public class CasinoGui extends JFrame implements ActionListener{
 			PlayerCards.setText("Cards : ");
 			DealerCards.setText("Cards : ");
 			BeginRoundPlay--;
+			RoundPlay = false;
 		}else{
 			Total.setText("Total Card Value : " + a.getTotal());
 		}
@@ -189,6 +190,7 @@ public class CasinoGui extends JFrame implements ActionListener{
 				DealerCards.setText("Cards : ");
 				Money.setText("Money : " + a.getMoney());
 				BeginRoundPlay--;
+				RoundPlay = false; 
 			}else{
 				Total.setText("Total Card Value : " + a.getTotal());
 				s = "Stand";
@@ -246,6 +248,7 @@ public class CasinoGui extends JFrame implements ActionListener{
 		DealerCards.setText("Cards : ");
 		Money.setText("Money : " + a.getMoney());
 		BeginRoundPlay--;
+		RoundPlay = false; 
 	}
 	
     }
