@@ -148,6 +148,9 @@ public class CasinoGui extends JFrame implements ActionListener{
 		}
 	    if(Integer.parseInt(thing) > a.getMoney())
 			{JOptionPane.showMessageDialog(null , "You're not THAT rich yet!");}
+		if(Integer.parseInt(thing) < 1){
+			JOptionPane.showMessageDialog(null, "The Dealer won't fall for that one again!");
+		}
 	    else{a.setBet(Integer.parseInt(thing));
 			a.setMoney(a.getMoney() - a.getBet());
 			Money.setText("Money : " + a.getMoney());
