@@ -7,7 +7,7 @@ public class CasinoGui extends JFrame implements ActionListener{
     private Container pane;
     private JButton hit,stand,startGame,doubleDown,newRound; 
     private JTextField playerName,Bet;
-    private JLabel Total , Money , Name , BetCount, PlayerCards , DealerCards, DealerTotal, DealerHead, PlayerHead, pCard1, pCard2, pCard3, pCard4, pCard5, dCard1, dCard2, dCard3, dCard4, dCard5;
+    private JLabel Total , Money , Name , BetCount, PlayerCards , DealerCards, DealerTotal, DealerHead, PlayerHead, pCard1, pCard2, pCard3, pCard4, pCard5, dCard1, dCard2, dCard3, dCard4, dCard5, dCard6, dCard7;
     //BET AND SETNAME SET FOR POP UP WHEN STARTGAME IS PRESSED
 	
 	
@@ -55,6 +55,8 @@ public class CasinoGui extends JFrame implements ActionListener{
 	dCard3 = new JLabel();
 	dCard4 = new JLabel();
 	dCard5 = new JLabel();
+	dCard6 = new JLabel();
+	dCard7 = new JLabel();
 
 	hit.setBounds( 25, 700 , 100 , 50);
 	stand.setBounds(150 , 700 , 100 , 50) ;
@@ -80,6 +82,8 @@ public class CasinoGui extends JFrame implements ActionListener{
 	dCard3.setBounds(177, 75, 71, 96);
 	dCard4.setBounds(253, 75, 71, 96);
 	dCard5.setBounds(329, 75, 71, 96);
+	dCard6.setBounds(405, 75, 71, 96);
+	dCard5.setBounds(481, 75, 71, 96);
 	
 	
 	//(HORIZ BOUNDS , VERT BOUNDS , LENGTH , WIDTH) 
@@ -117,6 +121,8 @@ public class CasinoGui extends JFrame implements ActionListener{
 	pane.add(dCard3);
 	pane.add(dCard4);
 	pane.add(dCard5);
+	pane.add(dCard6);
+	pane.add(dCard7);
     }
     
     public static void main(String[] args){
@@ -259,6 +265,33 @@ public class CasinoGui extends JFrame implements ActionListener{
 	
 	if(s.equals("Stand") && gameStarted == true && RoundPlay == true && BeginRoundPlay == 0){
 		guy.fullTurn(thisDeck);
+		dCard1.setIcon(guy.position(0).getFace());
+		dCard2.setIcon(guy.position(1).getFace());
+		if( guy.getHand().size() == 3){
+				dCard3.setIcon(guy.position(2).getFace());
+		}
+		if( guy.getHand().size() == 4){
+				dCard3.setIcon(guy.position(2).getFace());
+				dCard4.setIcon(guy.position(3).getFace());
+		}
+		if( guy.getHand().size() == 5){
+				dCard3.setIcon(guy.position(2).getFace());
+				dCard4.setIcon(guy.position(3).getFace());
+				dCard5.setIcon(guy.position(4).getFace());
+		}
+		if( guy.getHand().size() == 6){
+				dCard3.setIcon(guy.position(2).getFace());
+				dCard4.setIcon(guy.position(3).getFace());
+				dCard5.setIcon(guy.position(4).getFace());
+				dCard6.setIcon(guy.position(5).getFace());
+		}
+		if( guy.getHand().size() >= 7){
+				dCard3.setIcon(guy.position(2).getFace());
+				dCard4.setIcon(guy.position(3).getFace());
+				dCard5.setIcon(guy.position(4).getFace());
+				dCard6.setIcon(guy.position(5).getFace());
+				dCard7.setIcon(guy.position(6).getFace());
+		}
 		DealerCards.setText("Cards : ");
 		for(int stepper = 0; stepper < guy.getHand().size(); stepper++){
 			DealerCards.setText(DealerCards.getText() + guy.position(stepper).getName() + ", ");
