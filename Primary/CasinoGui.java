@@ -30,6 +30,7 @@ public class CasinoGui extends JFrame implements ActionListener{
 	pane = this.getContentPane();
 	//pane.setLayout(new FlowLayout());
 	pane.setLayout(null);
+	pane.setBackground(new Color(60, 140, 51));
 	hit = new JButton ("Hit");
 	stand = new JButton("Stand");
 	startGame = new JButton("Start Game");
