@@ -193,6 +193,11 @@ public class CasinoGui extends JFrame implements ActionListener{
 			DealerTotal.setText("Total Card Value : ");
 			PlayerCards.setText("Cards : ");
 			DealerCards.setText("Cards : ");
+			pCard1.setIcon(null);
+			pCard2.setIcon(null);
+			pCard3.setIcon(null);
+			pCard4.setIcon(null);
+			pCard5.setIcon(null);
 			BeginRoundPlay--;
 		}else{
 			Total.setText("Total Card Value : " + a.getTotal());
