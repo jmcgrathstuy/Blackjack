@@ -7,7 +7,7 @@ public class CasinoGui extends JFrame implements ActionListener{
     private Container pane;
     private JButton hit,stand,startGame,doubleDown,newRound; 
     private JTextField playerName,Bet;
-    private JLabel Total , Money , Name , BetCount, PlayerCards , DealerCards, DealerTotal, DealerHead, PlayerHead, pCard1, pCard2, pCard3, pCard4, pCard5, dCard1, dCard2, dCard3, dCard4, dCard5, dCard6, dCard7;
+    private JLabel Total , Money , Name , BetCount, PlayerCards , DealerCards, DealerTotal, DealerHead, PlayerHead, pCard1, pCard2, pCard3, pCard4, pCard5, dCard1, dCard2, dCard3, dCard4, dCard5, dCard6, dCard7, tableTop;
     //BET AND SETNAME SET FOR POP UP WHEN STARTGAME IS PRESSED
 	
 	
