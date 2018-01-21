@@ -37,7 +37,7 @@ public class CasinoGui extends JFrame implements ActionListener{
 	doubleDown = new JButton("Double Down");
 	playerName = new JTextField("Input Name");
 	Total = new JLabel("Total Card Value : 0");
-	Money = new JLabel("Money : 50");
+	Money = new JLabel("Money : $50");
 	Name = new JLabel("Name : Undetermined");
 	newRound = new JButton("New Round"); 
 	BetCount = new JLabel("Bet : Undetermined");
@@ -152,7 +152,7 @@ public class CasinoGui extends JFrame implements ActionListener{
 		DealerTotal.setText("Total Card Value : ");
 		PlayerCards.setText("Cards : ");
 		DealerCards.setText("Cards : ");
-		Money.setText("Money : " + a.getMoney());
+		Money.setText("Money : $" + a.getMoney());
 		pCard1.setIcon(null);
 		pCard2.setIcon(null);
 		pCard3.setIcon(null);
@@ -187,7 +187,7 @@ public class CasinoGui extends JFrame implements ActionListener{
 		}
 	    else{a.setBet(Integer.parseInt(thing));
 			a.setMoney(a.getMoney() - a.getBet());
-			Money.setText("Money : " + a.getMoney());
+			Money.setText("Money : $" + a.getMoney());
 			BetCount.setText("Bet : " + a.getBet());
 		
 		while(BeginRoundPlay < 0){	
@@ -275,7 +275,7 @@ public class CasinoGui extends JFrame implements ActionListener{
 				DealerTotal.setText("Total Card Value : ");
 				PlayerCards.setText("Cards : ");
 				DealerCards.setText("Cards : ");
-				Money.setText("Money : " + a.getMoney());
+				Money.setText("Money : $" + a.getMoney());
 				pCard1.setIcon(null);
 				pCard2.setIcon(null);
 				pCard3.setIcon(null);
@@ -371,7 +371,7 @@ public class CasinoGui extends JFrame implements ActionListener{
 		DealerTotal.setText("Total Card Value : ");
 		PlayerCards.setText("Cards : ");
 		DealerCards.setText("Cards : ");
-		Money.setText("Money : " + a.getMoney());
+		Money.setText("Money : $" + a.getMoney());
 		pCard1.setIcon(null);
 		pCard2.setIcon(null);
 		pCard3.setIcon(null);
