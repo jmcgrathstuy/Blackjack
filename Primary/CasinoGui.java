@@ -170,7 +170,7 @@ public class CasinoGui extends JFrame implements ActionListener{
 		RoundPlay = true;
 		}}}
 		
-	if(s.equals("Hit") && gameStarted == true && RoundPlay == true) {
+	if(s.equals("Hit") && gameStarted == true && RoundPlay == true && BeginRoundPlay == 0) {
 	    a.Draw(thisDeck);
 	    Total.setText("Total Card Value : " + a.getTotal());
 	    PlayerCards.setText( PlayerCards.getText() + ", " + a.position(a.getHand().size() - 1).getName());
@@ -207,7 +207,7 @@ public class CasinoGui extends JFrame implements ActionListener{
 		}
 	}
 	
-	if(s.equals("Double Down") && gameStarted == true && RoundPlay == true){
+	if(s.equals("Double Down") && gameStarted == true && RoundPlay == true && BeginRoundPlay == 0){
 		if(a.getMoney() >= a.getBet()){
 			a.setMoney(a.getMoney() - a.getBet());
 			a.setBet(a.getBet() * 2);
@@ -224,6 +224,11 @@ public class CasinoGui extends JFrame implements ActionListener{
 				PlayerCards.setText("Cards : ");
 				DealerCards.setText("Cards : ");
 				Money.setText("Money : " + a.getMoney());
+				pCard1.setIcon(null);
+				pCard2.setIcon(null);
+				pCard3.setIcon(null);
+				pCard4.setIcon(null);
+				pCard5.setIcon(null);
 				BeginRoundPlay--;
 			}else{
 				Total.setText("Total Card Value : " + a.getTotal());
@@ -235,7 +240,7 @@ public class CasinoGui extends JFrame implements ActionListener{
 	}
 	
 	
-	if(s.equals("Stand") && gameStarted == true && RoundPlay == true){
+	if(s.equals("Stand") && gameStarted == true && RoundPlay == true && BeginRoundPlay == 0){
 		guy.fullTurn(thisDeck);
 		DealerCards.setText("Cards : ");
 		for(int stepper = 0; stepper < guy.getHand().size(); stepper++){
@@ -281,6 +286,11 @@ public class CasinoGui extends JFrame implements ActionListener{
 		PlayerCards.setText("Cards : ");
 		DealerCards.setText("Cards : ");
 		Money.setText("Money : " + a.getMoney());
+		pCard1.setIcon(null);
+		pCard2.setIcon(null);
+		pCard3.setIcon(null);
+		pCard4.setIcon(null);
+		pCard5.setIcon(null);
 		BeginRoundPlay--;
 	}
 	
