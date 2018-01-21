@@ -83,7 +83,7 @@ public class CasinoGui extends JFrame implements ActionListener{
 	dCard4.setBounds(253, 75, 71, 96);
 	dCard5.setBounds(329, 75, 71, 96);
 	dCard6.setBounds(405, 75, 71, 96);
-	dCard5.setBounds(481, 75, 71, 96);
+	dCard7.setBounds(481, 75, 71, 96);
 	
 	
 	//(HORIZ BOUNDS , VERT BOUNDS , LENGTH , WIDTH) 
@@ -152,6 +152,18 @@ public class CasinoGui extends JFrame implements ActionListener{
 		PlayerCards.setText("Cards : ");
 		DealerCards.setText("Cards : ");
 		Money.setText("Money : " + a.getMoney());
+		pCard1.setIcon(null);
+		pCard2.setIcon(null);
+		pCard3.setIcon(null);
+		pCard4.setIcon(null);
+		pCard5.setIcon(null);
+		dCard1.setIcon(null);
+		dCard2.setIcon(null);
+		dCard3.setIcon(null);
+		dCard4.setIcon(null);
+		dCard5.setIcon(null);
+		dCard6.setIcon(null);
+		dCard7.setIcon(null);
 		
 	    gameStarted = true;
 		}
@@ -189,7 +201,7 @@ public class CasinoGui extends JFrame implements ActionListener{
 		Total.setText("Total Card Value : " + /*(a.position(0).getValue() + a.position(1).getValue())*/ a.getTotal());
 		pCard1.setIcon(a.position(0).getFace());
 		pCard2.setIcon(a.position(1).getFace());
-	    BeginRoundPlay++;
+	    BeginRoundPlay = 0;
 		RoundPlay = true;
 		}}}
 		
@@ -221,7 +233,14 @@ public class CasinoGui extends JFrame implements ActionListener{
 			pCard3.setIcon(null);
 			pCard4.setIcon(null);
 			pCard5.setIcon(null);
-			BeginRoundPlay--;
+			dCard1.setIcon(null);
+			dCard2.setIcon(null);
+			dCard3.setIcon(null);
+			dCard4.setIcon(null);
+			dCard5.setIcon(null);
+			dCard6.setIcon(null);
+			dCard7.setIcon(null);
+			BeginRoundPlay = -1;
 		}else{
 			Total.setText("Total Card Value : " + a.getTotal());
 		}
@@ -237,6 +256,15 @@ public class CasinoGui extends JFrame implements ActionListener{
 			a.Draw(thisDeck);
 			Total.setText("Total Card Value : " + a.getTotal());
 			PlayerCards.setText( PlayerCards.getText() + ", " + a.position(a.getHand().size() - 1).getName());
+			if( a.getHand().size() == 3){
+				pCard3.setIcon(a.position(2).getFace());
+			}
+			if( a.getHand().size() == 4){
+				pCard4.setIcon(a.position(3).getFace());
+			}
+			if( a.getHand().size() == 5){
+				pCard5.setIcon(a.position(4).getFace());
+			}
 			if(a.checkBust() == true){
 				JOptionPane.showMessageDialog(null, "Bust!");
 				a.setBet(0);
@@ -252,7 +280,14 @@ public class CasinoGui extends JFrame implements ActionListener{
 				pCard3.setIcon(null);
 				pCard4.setIcon(null);
 				pCard5.setIcon(null);
-				BeginRoundPlay--;
+				dCard1.setIcon(null);
+				dCard2.setIcon(null);
+				dCard3.setIcon(null);
+				dCard4.setIcon(null);
+				dCard5.setIcon(null);
+				dCard6.setIcon(null);
+				dCard7.setIcon(null);
+				BeginRoundPlay = -1;
 			}else{
 				Total.setText("Total Card Value : " + a.getTotal());
 				s = "Stand";
@@ -341,7 +376,14 @@ public class CasinoGui extends JFrame implements ActionListener{
 		pCard3.setIcon(null);
 		pCard4.setIcon(null);
 		pCard5.setIcon(null);
-		BeginRoundPlay--;
+		dCard1.setIcon(null);
+		dCard2.setIcon(null);
+		dCard3.setIcon(null);
+		dCard4.setIcon(null);
+		dCard5.setIcon(null);
+		dCard6.setIcon(null);
+		dCard7.setIcon(null);
+		BeginRoundPlay = -1;
 	}
 	
     }
