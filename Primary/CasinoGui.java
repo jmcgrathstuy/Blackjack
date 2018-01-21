@@ -7,7 +7,7 @@ public class CasinoGui extends JFrame implements ActionListener{
     private Container pane;
     private JButton hit,stand,startGame,doubleDown,newRound; 
     private JTextField playerName,Bet;
-    private JLabel Total , Money , Name , BetCount, PlayerCards , DealerCards, DealerTotal, DealerHead, PlayerHead, pCard1, pCard2, pCard3, pCard4, pCard5;
+    private JLabel Total , Money , Name , BetCount, PlayerCards , DealerCards, DealerTotal, DealerHead, PlayerHead, pCard1, pCard2, pCard3, pCard4, pCard5, dCard1, dCard2, dCard3, dCard4, dCard5;
     //BET AND SETNAME SET FOR POP UP WHEN STARTGAME IS PRESSED
 	
 	
@@ -17,7 +17,7 @@ public class CasinoGui extends JFrame implements ActionListener{
 	
 	public static int BeginRoundPlay = -1; 
 	public static Boolean RoundPlay = false; 
-	//public static ImageIcon tesf = new ImageIcon("foo".getClass().getResource("/cardImages/aceClub.png"));
+	public static ImageIcon back = new ImageIcon( "okay".getClass().getResource( "/cardImages/cardBack.png"));
 
 
     public CasinoGui () {
@@ -50,6 +50,11 @@ public class CasinoGui extends JFrame implements ActionListener{
 	pCard3 = new JLabel();
 	pCard4 = new JLabel();
 	pCard5 = new JLabel();
+	dCard1 = new JLabel();
+	dCard2 = new JLabel();
+	dCard3 = new JLabel();
+	dCard4 = new JLabel();
+	dCard5 = new JLabel();
 
 	hit.setBounds( 25, 700 , 100 , 50);
 	stand.setBounds(150 , 700 , 100 , 50) ;
@@ -70,6 +75,11 @@ public class CasinoGui extends JFrame implements ActionListener{
 	pCard3.setBounds(177, 504, 71, 96);
 	pCard4.setBounds(253, 504, 71, 96);
 	pCard5.setBounds(329, 504, 71, 96);
+	dCard1.setBounds(25, 75, 71, 96);
+	dCard2.setBounds(101, 75, 71, 96);
+	dCard3.setBounds(177, 75, 71, 96);
+	dCard4.setBounds(253, 75, 71, 96);
+	dCard5.setBounds(329, 75, 71, 96);
 	
 	
 	//(HORIZ BOUNDS , VERT BOUNDS , LENGTH , WIDTH) 
@@ -102,6 +112,11 @@ public class CasinoGui extends JFrame implements ActionListener{
 	pane.add(pCard3);
 	pane.add(pCard4);
 	pane.add(pCard5);
+	pane.add(dCard1);
+	pane.add(dCard2);
+	pane.add(dCard3);
+	pane.add(dCard4);
+	pane.add(dCard5);
     }
     
     public static void main(String[] args){
@@ -160,6 +175,8 @@ public class CasinoGui extends JFrame implements ActionListener{
 		guy.Draw(thisDeck); 
 		guy.Draw(thisDeck); 
 		DealerCards.setText("Cards : " + "FACEDOWN , " + guy.position(1).getName()); 
+		dCard1.setIcon(back);
+		dCard2.setIcon(guy.position(1).getFace());
 		a.Draw(thisDeck); 
 		a.Draw(thisDeck);
 		PlayerCards.setText("Cards : " +  a.position(0).getName() + " , " +  a.position(1).getName());
