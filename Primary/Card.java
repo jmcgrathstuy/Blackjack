@@ -16,7 +16,7 @@ public class Card {
     }
 	setName(name);
 	setValue(worth);
-	face = new ImageIcon( imagePath);
+	face = new ImageIcon( "okay".getClass().getResource( imagePath));
 	facePath = imagePath;
 
 
@@ -45,7 +45,7 @@ public class Card {
 	}
 	
 	public void setFace(String imagePath){
-		face = new ImageIcon( imagePath);
+		face = new ImageIcon( "okay".getClass().getResource( imagePath));
 	}
 	
 	public ImageIcon getFace(){
@@ -58,5 +58,10 @@ public class Card {
 	
 	public String getFacePath(){
 		return facePath;
+	}
+	
+	public static void main(String[] args){
+		Card a = new Card("yeet", 1, "/cardImages/aceClub.png");
+		System.out.println(a.getFace());
 	}
 }
