@@ -64,7 +64,7 @@ public class CasinoGui extends JFrame implements ActionListener{
 	doubleDown.setBounds(275 , 700 , 100 , 50);
 	startGame.setBounds(650 , 50 , 100 , 50) ;
 	newRound.setBounds(650 , 100 , 100 , 50);
-	Money.setBounds(650 , 150 , 100 , 25);
+	Money.setBounds(650 , 150 , 200 , 25);
 	Total.setBounds(25 , 675 , 200 , 25);
 	Name.setBounds(650 ,175 , 300 , 25);
 	BetCount.setBounds(650 , 200 , 200 , 25);
