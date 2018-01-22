@@ -242,6 +242,8 @@ public class CasinoGui extends JFrame implements ActionListener{
 			dCard6.setIcon(null);
 			dCard7.setIcon(null);
 			BeginRoundPlay = -1;
+			if(a.getMoney() == 0) {JOptionPane.showMessageDialog(null,"You lose!");
+			    gameStarted = false; }
 		}else{
 			Total.setText("Total Card Value : " + a.getTotal());
 		}
@@ -289,6 +291,10 @@ public class CasinoGui extends JFrame implements ActionListener{
 				dCard6.setIcon(null);
 				dCard7.setIcon(null);
 				BeginRoundPlay = -1;
+				if(a.getMoney() == 0) {JOptionPane.showMessageDialog(null,"You lose!");
+				    gameStarted = false; }
+				
+				    
 			}else{
 				Total.setText("Total Card Value : " + a.getTotal());
 				s = "Stand";
@@ -362,6 +368,9 @@ public class CasinoGui extends JFrame implements ActionListener{
 		}
 		if(a.getTotal() < guy.getTotal() && !a.fiveCC()){
 			JOptionPane.showMessageDialog(null, "The Dealer beat you!");
+			if(a.getMoney() == 0) {JOptionPane.showMessageDialog(null,"You lose!");
+			    gameStarted = false; }
+			
 		}}
 		a.setBet(0);
 		a.reset();
@@ -385,6 +394,7 @@ public class CasinoGui extends JFrame implements ActionListener{
 		dCard6.setIcon(null);
 		dCard7.setIcon(null);
 		BeginRoundPlay = -1;
+	
 	}
 	
     }
@@ -402,30 +412,6 @@ public class CasinoGui extends JFrame implements ActionListener{
 
 
 
-
-
-
-
-
-  /* while(RoundPlay = true) {
-
-		if(s.equals("Hit") && gameStarted == true && BeginRoundPlay == 0){
-		    a.Draw(thisDeck);
-		    if(a.checkBust() == true) {
-			JOptionPane.showMessageDialog(null , "Bust!");
-			a.setBet(0);
-			a.reset();
-			BetCount.setText("0");
-			Total.setText("Total : 0");
-			PlayerCards.setText("Cards : ");
-			DealerCards.setText("Cards : ");
-		    }
-		}
-	    }
-	}
-    }
-}
-	    */	
 	    
 	    
 		
