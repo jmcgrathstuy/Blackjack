@@ -22,7 +22,7 @@ public class CasinoGui extends JFrame implements ActionListener{
 
     public CasinoGui () {
 	this.setTitle("Casino");
-	this.setSize(800,800);
+	this.setSize(800,600);
 	this.setLocation(250,0);
 	this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 
@@ -37,7 +37,7 @@ public class CasinoGui extends JFrame implements ActionListener{
 	doubleDown = new JButton("Double Down");
 	playerName = new JTextField("Input Name");
 	Total = new JLabel("Total Card Value : 0");
-	Money = new JLabel("Money : $50");
+	Money = new JLabel("Money : $1000");
 	Name = new JLabel("Name : Undetermined");
 	newRound = new JButton("New Round"); 
 	BetCount = new JLabel("Bet : Undetermined");
@@ -59,32 +59,32 @@ public class CasinoGui extends JFrame implements ActionListener{
 	dCard6 = new JLabel();
 	dCard7 = new JLabel();
 
-	hit.setBounds( 25, 700 , 100 , 50);
-	stand.setBounds(150 , 700 , 100 , 50) ;
-	doubleDown.setBounds(275 , 700 , 100 , 50);
-	startGame.setBounds(650 , 0 , 100 , 50) ;
-	newRound.setBounds(650 , 65 , 100 , 50);
+	hit.setBounds( 25, 500 , 100 , 50);
+	stand.setBounds(150 , 500 , 100 , 50) ;
+	doubleDown.setBounds(275 , 500 , 115 , 50);
+	startGame.setBounds(650 , 0 , 110 , 50) ;
+	newRound.setBounds(650 , 65 , 110 , 50);
 	Money.setBounds(650 , 120 , 200 , 25);
-	Total.setBounds(25 , 675 , 200 , 25);
+	Total.setBounds(25 , 475 , 200 , 25);
 	Name.setBounds(650 ,150 , 300 , 25);
 	BetCount.setBounds(650 , 180 , 200 , 25);
 	DealerCards.setBounds(25 , 25 , 500 , 25); 
-	PlayerCards.setBounds(25 , 650 , 500 , 25);  
+	PlayerCards.setBounds(25 , 450 , 500 , 25);  
 	DealerTotal.setBounds(25, 50, 500, 25);
 	DealerHead.setBounds(25, 0, 500, 25);
-	PlayerHead.setBounds(25, 625, 500, 25);
-	pCard1.setBounds(25, 504, 71, 96);
-	pCard2.setBounds(101, 504, 71, 96);
-	pCard3.setBounds(177, 504, 71, 96);
-	pCard4.setBounds(253, 504, 71, 96);
-	pCard5.setBounds(329, 504, 71, 96);
-	dCard1.setBounds(25, 75, 71, 96);
-	dCard2.setBounds(101, 75, 71, 96);
-	dCard3.setBounds(177, 75, 71, 96);
-	dCard4.setBounds(253, 75, 71, 96);
-	dCard5.setBounds(329, 75, 71, 96);
-	dCard6.setBounds(405, 75, 71, 96);
-	dCard7.setBounds(481, 75, 71, 96);
+	PlayerHead.setBounds(25, 325, 500, 25);
+	pCard1.setBounds(25, 350, 71, 96);
+	pCard2.setBounds(101, 350, 71, 96);
+	pCard3.setBounds(177, 350, 71, 96);
+	pCard4.setBounds(253, 350, 71, 96);
+	pCard5.setBounds(329, 350, 71, 96);
+	dCard1.setBounds(25, 109, 71, 96);
+	dCard2.setBounds(101, 109, 71, 96);
+	dCard3.setBounds(177, 109, 71, 96);
+	dCard4.setBounds(253, 109, 71, 96);
+	dCard5.setBounds(329, 109, 71, 96);
+	dCard6.setBounds(405, 109, 71, 96);
+	dCard7.setBounds(481, 109, 71, 96);
 	
 	
 	//(HORIZ BOUNDS , VERT BOUNDS , LENGTH , WIDTH) 
