@@ -37,7 +37,7 @@ public class CasinoGui extends JFrame implements ActionListener{
 	doubleDown = new JButton("Double Down");
 	playerName = new JTextField("Input Name");
 	Total = new JLabel("Total Card Value : 0");
-	Money = new JLabel("Money : 50");
+	Money = new JLabel("Money : Undetermined");
 	Name = new JLabel("Name : Undetermined");
 	newRound = new JButton("New Round"); 
 	BetCount = new JLabel("Bet : Undetermined");
