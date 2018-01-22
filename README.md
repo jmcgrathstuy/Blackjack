@@ -7,7 +7,7 @@ In this program, we will be attempting to run a game of Blackjack. The main purp
 
 
 When you run the program, you will be greeted by the Board. 
-As a player, you will start with 50 dollars, and your stats are labeled by the labels towards the bottom and to the right of the screen. 
+As a player, you will start with 1000 dollars, and your stats are labeled by the labels towards the bottom and to the right of the screen. 
 The Labels for "Cards" show the cards in you and your dealer's respective hands. 
 The labels for "Total Card Value" shows the added values of all the cards in each player's respective hands.
 
