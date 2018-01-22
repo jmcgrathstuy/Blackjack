@@ -143,7 +143,7 @@ public class CasinoGui extends JFrame implements ActionListener{
 	    tempName = input; 
 	    Name.setText("Name : " + input);
         a.setName(tempName);
-		a.setMoney(50);
+		a.setMoney(1000);
 		a.setBet(0);
 		a.reset();
 		guy.reset();
